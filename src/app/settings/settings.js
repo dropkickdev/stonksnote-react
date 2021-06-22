@@ -1,6 +1,6 @@
 import local_settings from "./local"
 import production_settings from "./production"
-import ENVIRONMENT from "../env"
+import ENVIRONMENT from "../../env"
 
 
 let settings

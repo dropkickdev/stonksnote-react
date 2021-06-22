@@ -1,12 +1,19 @@
 import './App.css';
-import s from "./settings/settings"
+import { useSelector } from "react-redux"
+import s from "./app/settings/settings"
+import GuestTemplate from "./templates/layouts/GuestTemplate"
+
 
 function App() {
+    const x = useSelector(state => state)
+    console.table(x)
     return (
         <>
             <div className="App">
-                <h1>Hello world</h1>
-                <p>{s.MESSAGE}</p>
+                <GuestTemplate>
+                    <h1>Hello world</h1>
+                    <p>{s.MESSAGE}</p>
+                </GuestTemplate>
             </div>
         </>
     );
