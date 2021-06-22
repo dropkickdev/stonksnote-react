@@ -8,7 +8,7 @@ const auth = createSlice({
         email: '',
     },
     reducers: {
-        login: (state, {display, email}) => {
+        login: (state, {payload: {display, email}}) => {
             state.is_auth = true
             state.display = display
             state.email = email

@@ -1,11 +1,17 @@
 import BaseTemplate from "./BaseTemplate"
+import Header from "../partials/headers"
+import Footer from "../partials/footers"
 
 
 
 const UserTemplate = props => {
     return (
         <BaseTemplate>
-            {props.children}
+            <Header />
+            <main>
+                {props.children}
+            </main>
+            <Footer />
         </BaseTemplate>
     )
 }
