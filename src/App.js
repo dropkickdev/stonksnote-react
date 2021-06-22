@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css'
 import { useSelector, useDispatch } from "react-redux"
 import s from "./app/settings/settings"
 import GuestTemplate from "./templates/layouts/GuestTemplate"
