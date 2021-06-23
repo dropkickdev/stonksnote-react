@@ -6,7 +6,9 @@ export const GuestFooter = ({theme}) => {
     return (
         <>
             <footer id="footer" className={theme}>
-                This is the guest footer
+                <div className="container">
+                    This is the guest footer
+                </div>
             </footer>
         </>
     )
@@ -17,7 +19,9 @@ export const UserFooter = ({theme}) => {
     return (
         <>
             <footer id="footer" className={theme}>
-                This is the user footer
+                <div className="container">
+                    This is the user footer
+                </div>
             </footer>
         </>
     )

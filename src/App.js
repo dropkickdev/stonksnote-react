@@ -29,7 +29,7 @@ function App() {
 
     return (
         <>
-            <div id={'App'} className={`App ${theme.pageclass}`}>
+            <div id={'app'} className={`App ${theme.pageclass}`}>
 
                 <Route path={'/'} component={HomePage} exact />
                 <Route path={''} component={AuthRoutes} />

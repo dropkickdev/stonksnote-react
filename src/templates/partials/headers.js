@@ -9,7 +9,7 @@ export const GuestHeader = ({theme}) => {
         <header id="header" className={theme}>
             <div id="navbar">
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <div className="container-fluid">
+                    <div className="container">
                         <Link className="navbar-brand" to="/">
                             <img src={logo} alt="" width="30" height="24" />
                         </Link>
@@ -19,7 +19,7 @@ export const GuestHeader = ({theme}) => {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
-                                <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'}>Home</NavLink></li>
+                                <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'} exact>Home</NavLink></li>
                                 <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.REGISTER_URL}`}>Register</NavLink></li>
                                 <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.LOGIN_URL}`}>Login</NavLink></li>
                                 <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Foo</NavLink></li>
@@ -38,7 +38,7 @@ export const UserHeader = ({theme}) => {
         <header id="header" className={theme}>
             <div id="navbar">
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <div className="container-fluid">
+                    <div className="container">
                         <Link className="navbar-brand" to="/">
                             <img src={logo} alt="" width="30" height="24" />
                         </Link>
