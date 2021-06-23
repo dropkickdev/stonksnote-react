@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { Formik, Form, Field } from "formik"
 import * as yup from 'yup'
-import axios from 'axios'
 
 import api from "../../app/axios"
 import GuestTemplate from "../../templates/layouts/GuestTemplate"
