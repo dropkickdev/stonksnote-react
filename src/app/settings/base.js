@@ -2,6 +2,8 @@ let base_settings = {
     DEBUG: false,
     MESSAGE: 'This is base',
 
+    AXIOS_BASEURL: '',
+
     // URLs
     LOGIN_URL: '/login',
     LOGOUT_URL: '/logout',
@@ -22,7 +24,6 @@ let base_settings = {
         RESET_PASSWORD_OK_URL: '/n/password-reset-ok',
         RESET_PASSWORD_FAIL_URL: '/n/password-reset-fail',
     },
-
 
 }
 

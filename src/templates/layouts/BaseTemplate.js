@@ -1,8 +1,9 @@
 
 
+
 const BaseTemplate = props => {
     return (
-        <div className="wrapper">
+        <div>
             {props.children}
         </div>
     )
