@@ -7,11 +7,13 @@ import './assets/bootstrap/dist/js/bootstrap.min'
 import { login, logout } from "./app/redux/store"
 import AuthRoutes, { FooRoutes } from "./components/authentication/routes"
 import HomePage from "./components/Home"
+import { set_pageclass } from "./app/redux/slices"
+
 
 
 
 function App() {
-    const {auth} = useSelector(state => state)
+    const {auth, theme} = useSelector(state => state)
     const dispatch = useDispatch()
 
     /*
@@ -29,7 +31,7 @@ function App() {
 
     return (
         <>
-            <div className="App">
+            <div id={'App'} className={`App ${theme.pageclass}`}>
 
                 <Route path={'/'} component={HomePage} exact />
                 <Route path={''} component={AuthRoutes} />
