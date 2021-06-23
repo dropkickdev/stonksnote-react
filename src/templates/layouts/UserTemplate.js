@@ -8,9 +8,7 @@ const UserTemplate = props => {
     return (
         <BaseTemplate>
             <Header />
-            <main>
-                {props.children}
-            </main>
+            {props.children}
             <Footer />
         </BaseTemplate>
     )

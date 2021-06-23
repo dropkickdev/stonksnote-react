@@ -1,12 +1,17 @@
 import { useSelector } from "react-redux"
-
+import { NavLink } from "react-router-dom"
+import s from "../../app/settings/settings"
 
 
 export const GuestHeader = ({theme}) => {
     return (
         <>
             <header id="header" className={theme}>
-                This is the guest header
+                <ul>
+                    <li><NavLink to={`${s.REGISTER_URL}`}>Register</NavLink></li>
+                    <li><NavLink to={`${s.LOGIN_URL}`}>Login</NavLink></li>
+                    <li><NavLink to={'/foo'}>Foo</NavLink></li>
+                </ul>
             </header>
         </>
     )
