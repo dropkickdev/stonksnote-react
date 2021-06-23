@@ -27,16 +27,7 @@ export const UserFooter = ({theme}) => {
 const Footer = () => {
     const {auth, theme} = useSelector(state => state)
     const themeclass = `theme-${theme.type}`
-
-    return (
-        <>
-            {auth.is_auth ? (
-                <UserFooter theme={themeclass} />
-            ) : (
-                <GuestFooter theme={themeclass} />
-            )}
-        </>
-    )
+    return auth.is_auth && <UserFooter theme={themeclass} /> || <GuestFooter theme={themeclass} />
 }
 
 export default Footer
