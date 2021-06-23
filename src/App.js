@@ -1,8 +1,6 @@
 import './App.css'
 import { useSelector, useDispatch } from "react-redux"
 import { Route } from 'react-router-dom'
-import '@popperjs/core'
-import './assets/bootstrap/dist/js/bootstrap.min'
 
 import { login, logout } from "./app/redux/store"
 import AuthRoutes, { FooRoutes } from "./components/authentication/routes"
