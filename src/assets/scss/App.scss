@@ -1,5 +1,21 @@
-@import 'foo';
-@import '../bootstrap/scss/bootstrap';
+/*!
+---------------------------------------------------------------
+______                 _    _      _   ______
+|  _  \               | |  (_)    | |  |  _  \
+| | | |_ __ ___  _ __ | | ___  ___| | _| | | |_____   __
+| | | | '__/ _ \| '_ \| |/ / |/ __| |/ / | | / _ \ \ / /
+| |/ /| | | (_) | |_) |   <| | (__|   <| |/ /  __/\ V /
+|___/ |_|  \___/| .__/|_|\_\_|\___|_|\_\___/ \___| \_/
+                | |
+                |_|
 
-html, body {background:purple;}
-p {border:40px solid red;}
+enchance 2021 (doom)
+---------------------------------------------------------------
+*/
+@import "../bootstrap/scss/functions";
+@import 'vars'; // Mine
+@import 'bootstrap_imports';
+@import 'init';
+
+html, body {background:$bg-gray;}
+main {}

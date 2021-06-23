@@ -25,9 +25,10 @@ function App() {
             <div className="App">
                 <GuestTemplate>
                     <h1>Hello world</h1>
+                    <p className="h1">This is big too.</p>
                     <p>{s.MESSAGE}</p>
-                    <p><button onClick={switchauth}>Login</button></p>
-                    <p><button onClick={loggingout}>Logout</button></p>
+                    <p><button className={'btn btn-primary'} onClick={switchauth}>Login</button></p>
+                    <p><button className={'btn btn-secondary'} onClick={loggingout}>Logout</button></p>
                     <p>{auth.display}</p>
                 </GuestTemplate>
             </div>
