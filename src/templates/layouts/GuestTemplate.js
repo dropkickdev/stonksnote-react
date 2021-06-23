@@ -8,7 +8,9 @@ const GuestTemplate = props => {
     return (
         <BaseTemplate>
             <Header />
-            {props.children}
+            <div id={'content'}>
+                {props.children}
+            </div>
             <Footer />
         </BaseTemplate>
     )

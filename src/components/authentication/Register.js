@@ -63,7 +63,7 @@ const Register = props => {
             <main className={'container'}>
 
                 <div className="row">
-                    <div className="col-lg-5 col-xxl-4 mx-auto">
+                    <div className="col-sm-9 col-md-7 col-lg-5 col-xxl-4 mx-auto">
                         <div className="card">
                             <div className="card-body">
                                 <header>

@@ -18,4 +18,7 @@ enchance 2021 (doom)
 @import 'init';
 
 html, body {background:$bg-gray;}
-main {}
+
+#header {margin-bottom:50px;}
+
+#footer {margin-top:50px; background:#777; color:#FFF; padding:10px 0;}
