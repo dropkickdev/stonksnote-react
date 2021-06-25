@@ -19,6 +19,9 @@ export const auth  = createSlice({
             state.is_auth = false
             state.display = ''
         },
+        set_access_token: (state, {payload}) => {
+            state.access_token = payload
+        },
         set_display: (state, {payload}) => {
             state.display = payload
         }
@@ -43,5 +46,5 @@ export const site = createSlice({
 })
 
 
-export const {login, logout, set_display} = auth.actions
+export const {login, logout, set_access_token, set_display} = auth.actions
 export const {set_theme, set_pageclass} = site.actions

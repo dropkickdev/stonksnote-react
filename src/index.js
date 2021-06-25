@@ -10,7 +10,7 @@ import store from "./app/redux/store"
 
 
 
-export const history = createBrowserHistory()
+// export const history = createBrowserHistory()
 
 ReactDOM.render(
     <React.StrictMode>
