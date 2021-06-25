@@ -32,6 +32,10 @@ html, body {background:$bg-gray;}
 //#footer {background:#777; color:#FFF; padding:10px 0;}
 
 
+.btn {
+    &.btn-primary {color:#FFF;}
+}
+
 .dark-theme {background:$dark-theme-bg; color:$dark-theme-text;
     h1 {color:#EEE;}
 

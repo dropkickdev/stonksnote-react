@@ -47,7 +47,7 @@ const Register = props => {
         initialValues: init,
         validationSchema: schema,
         onSubmit: (values, actions) => {
-            api.post('http://localhost:9000/auth/register', values)
+            api.post('/auth/register', values)
                 .then(res => {
                     console.log(res.data)
                 })
