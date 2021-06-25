@@ -60,10 +60,10 @@ const Register = props => {
 
     return (
         <GuestTemplate>
-            <main className={'container'}>
+            <main>
 
                 <div className="row">
-                    <div className="col-sm-9 col-md-7 col-lg-5 col-xxl-4 mx-auto">
+                    <div className="col-sm-9 col-md-7 col-lg-5 col-xxl-5 mx-auto">
                         <div className="card">
                             <div className="card-body">
                                 <header>
@@ -83,7 +83,7 @@ const Register = props => {
         </Field>
         <div className={'field-error'}>
             {(touched.email) && (errors.email) && (
-                <div className="error text-danger">{errors.email}</div>
+                <div className="error">{errors.email}</div>
             )}
         </div>
     </div>

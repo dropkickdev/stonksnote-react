@@ -9,7 +9,9 @@ ______                 _    _      _   ______
                 | |
                 |_|
 
-enchance 2021 (doom)
+enchance 2021
+Ascii: doom
+Divider: cybermedium
 ---------------------------------------------------------------
 */
 @import "../bootstrap/scss/functions";
@@ -19,6 +21,60 @@ enchance 2021 (doom)
 
 html, body {background:$bg-gray;}
 
-#header {margin-bottom:50px;}
+#header {}
 
-#footer {margin-top:50px; background:#777; color:#FFF; padding:10px 0;}
+#content {}
+
+#footer {padding:20px 0;}
+
+#content {padding:50px 0;}
+
+//#footer {background:#777; color:#FFF; padding:10px 0;}
+
+
+.dark-theme {background:$dark-theme-bg; color:$dark-theme-text;
+    h1 {color:#EEE;}
+
+    #header {
+        nav {background:$dark-theme-dark; border-bottom:1px solid $dark-theme-light;
+            a:not(.navbar-brand):hover {background:lighten($dark-theme-dark, 10%);}
+        }
+    }
+    #content {}
+    #footer {background:$dark-theme-dark; border-top:1px solid $dark-theme-light;}
+    .card {background:$dark-theme-light;}
+
+    /*
+    * ____ ____ ____ _  _
+    * |___ |  | |__/ |\/|
+    * |    |__| |  \ |  |
+    */
+    .form-control:focus:not(.is-valid):not(.is-invalid) {border-color:$dark-theme-focus; outline:2px solid $dark-theme-focus;}
+    .field-error {color:lighten($danger, 30%);}
+
+    .was-validated .form-control:valid, .form-control.is-valid,
+    .was-validated .form-control:valid:focus, .form-control.is-valid:focus,
+    .was-validated .form-select:valid, .form-select.is-valid,
+    .was-validated .form-select:valid:focus, .form-select.is-valid:focus,
+    .was-validated .form-check-input:valid, .form-check-input.is-valid {
+        background-color:$dark-theme-valid; border-color:$dark-theme-valid-stroke;
+        outline:2px solid $dark-theme-valid-stroke;
+    }
+    .was-validated .form-check-input:valid:checked, .form-check-input.is-valid:checked {
+        background-color:$dark-theme-valid;
+    }
+
+    .was-validated .form-control:invalid, .form-control.is-invalid,
+    .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus,
+    .was-validated .form-select:invalid, .form-select.is-invalid,
+    .was-validated .form-select:invalid:focus, .form-select.is-invalid:focus,
+    .was-validated .form-check-input:invalid, .form-check-input.is-invalid {
+        background-color:$dark-theme-invalid; border-color:$dark-theme-invalid-stroke;
+        outline:2px solid $dark-theme-invalid-stroke;
+    }
+    .was-validated .form-check-input:invalid:checked, .form-check-input.is-invalid:checked {
+        background-color:$dark-theme-invalid;
+    }
+}
+
+.light-theme {}

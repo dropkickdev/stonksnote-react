@@ -1,8 +1,11 @@
 
 
-$bg-gray: #efefef;
+$bg-gray:           #efefef;
+$dark-theme-bg:     #282C34;
+$dark-theme-light:  #4F575F;
+$dark-theme-dark:   #21252B;
+$dark-theme-text:   #DDD;
 
-//$red:     #dc3545 !default;
 $primary:   #09F;
 $secondary: #BBB;
 
@@ -12,3 +15,17 @@ $font-color:        #333;
 $header-family:     Khula, Arial, "Helvetica Neue", Helvetica, sans-serif;
 $header-light:      300;
 $header-weight:     700;
+
+$dark-theme-focus:              lighten(#0DA0F8, 15%);
+$dark-theme-invalid:            lighten(#FFD4D2, 10%);
+$dark-theme-invalid-stroke:     darken($dark-theme-invalid, 20%);
+$dark-theme-valid:              lighten(#8BF0CF, 25%);
+$dark-theme-valid-stroke:       darken($dark-theme-valid, 20%);
+
+$container-max-widths: (
+        sm: 600px,
+        md: 780px,
+        lg: 960px,
+        xl: 1000px,
+        //xxl: 1320px
+);

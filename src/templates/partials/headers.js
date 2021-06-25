@@ -4,11 +4,11 @@ import s from "../../app/settings/settings"
 import logo from '../../assets/images/bootstrap-logo.svg'
 
 
-export const GuestHeader = ({theme}) => {
+const GuestHeader = ({theme}) => {
     return (
         <header id="header" className={theme}>
             <div id="navbar">
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <nav className="navbar navbar-expand-lg navbar-dark">
                     <div className="container">
                         <Link className="navbar-brand" to="/">
                             <img src={logo} alt="" width="30" height="24" />
@@ -33,11 +33,11 @@ export const GuestHeader = ({theme}) => {
 }
 
 
-export const UserHeader = ({theme}) => {
+const UserHeader = ({theme}) => {
     return (
         <header id="header" className={theme}>
             <div id="navbar">
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <nav className="navbar navbar-expand-lg navbar-dark">
                     <div className="container">
                         <Link className="navbar-brand" to="/">
                             <img src={logo} alt="" width="30" height="24" />
@@ -61,23 +61,12 @@ export const UserHeader = ({theme}) => {
 
 
 const Header = () => {
-    const {auth, theme} = useSelector(state => state)
-    const themeclass = `theme-${theme.type}`
-
+    const {auth, site} = useSelector(state => state)
     return (
         <>
-            <div className="device">
-                <div className={'d-block d-sm-none'}>xs</div>
-                <div className={'d-none d-sm-block d-md-none'}>sm</div>
-                <div className={'d-none d-md-block d-lg-none'}>md</div>
-                <div className={'d-none d-lg-block d-xl-none'}>lg</div>
-                <div className={'d-none d-xl-block d-xxl-none'}>xl</div>
-                <div className={'d-none d-xxl-block'}>xxl</div>
-            </div>
-            {auth.is_auth && <UserHeader theme={themeclass} /> || <GuestHeader theme={themeclass} />}
+            {auth.is_auth && <UserHeader theme={site.theme} /> || <GuestHeader theme={site.theme} />}
         </>
     )
-    return
 }
 
 export default Header

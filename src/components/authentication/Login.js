@@ -4,7 +4,7 @@ import GuestTemplate from "../../templates/layouts/GuestTemplate"
 const Login = props => {
     return (
         <GuestTemplate>
-            <main className={'container'}>
+            <main>
                 <h1>Login page</h1>
             </main>
         </GuestTemplate>
@@ -13,7 +13,7 @@ const Login = props => {
 
 export const FooPage = () => (
     <GuestTemplate>
-        <main className={'container'}>
+        <main>
             <h1>Foo page</h1>
         </main>
     </GuestTemplate>
