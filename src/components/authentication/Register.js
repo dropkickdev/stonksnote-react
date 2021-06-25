@@ -7,6 +7,7 @@ import api from "../../app/axios"
 import GuestTemplate from "../../templates/layouts/GuestTemplate"
 import { set_pageclass } from "../../app/redux/slices"
 import { SimpleInputHTML } from "../../templates/partials/forms"
+import { api_register } from "../../app/api/auth-account"
 
 
 const Register = props => {
@@ -47,7 +48,7 @@ const Register = props => {
         initialValues: init,
         validationSchema: schema,
         onSubmit: (values, actions) => {
-            api.post('/auth/register', values)
+            api_register(values)
                 .then(res => {
                     console.log(res.data)
                 })
