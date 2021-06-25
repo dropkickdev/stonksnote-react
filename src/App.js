@@ -11,7 +11,7 @@ import { set_pageclass } from "./app/redux/slices"
 
 
 function App() {
-    const {auth, theme} = useSelector(state => state)
+    const {auth, site} = useSelector(state => state)
     const dispatch = useDispatch()
 
     /*
@@ -29,7 +29,7 @@ function App() {
 
     return (
         <>
-            <div id={'app'} className={`App ${theme.pageclass}`}>
+            <div id={'app'} className={site.theme}>
 
                 <Route path={'/'} component={HomePage} exact />
                 <Route path={''} component={AuthRoutes} />

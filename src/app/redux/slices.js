@@ -24,15 +24,16 @@ export const auth  = createSlice({
     }
 })
 
-export const theme = createSlice({
-    name: 'theme',
+export const site = createSlice({
+    name: 'site',
     initialState: {
-        type: 'light',
+        debug: true,
+        theme: 'dark-theme',
         pageclass: ''
     },
     reducers: {
         set_theme: (state, {payload}) => {
-            state.type = payload
+            state.theme = payload
         },
         set_pageclass: (state, {payload}) => {
             state.pageclass = payload
@@ -42,4 +43,4 @@ export const theme = createSlice({
 
 
 export const {login, logout, set_display} = auth.actions
-export const {set_theme, set_pageclass} = theme.actions
+export const {set_theme, set_pageclass} = site.actions

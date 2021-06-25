@@ -14,7 +14,7 @@ export const SimpleInputHTML = props => {
             </Field>
             <div className={'field-error'}>
                 {(touched[name]) && (errors[name]) && (
-                    <div className="error text-danger">{errors[name]}</div>
+                    <div className="error">{errors[name]}</div>
                 )}
             </div>
         </>

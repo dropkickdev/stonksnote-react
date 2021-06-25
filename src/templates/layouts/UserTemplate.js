@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux"
+
 import BaseTemplate from "./BaseTemplate"
 import Header from "../partials/headers"
 import Footer from "../partials/footers"
@@ -5,10 +7,11 @@ import Footer from "../partials/footers"
 
 
 const UserTemplate = props => {
+    const {site} = useSelector(state => state)
     return (
         <BaseTemplate>
             <Header />
-            <div id={'content'}>
+            <div id={'content'} className={`${site.theme} container`}>
                 {props.children}
             </div>
             <Footer />

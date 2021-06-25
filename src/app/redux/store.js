@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { auth, theme } from "./slices"
+import { auth, site } from "./slices"
 
 
 
 const store = configureStore({
     reducer: {
         auth: auth.reducer,
-        theme: theme.reducer,
+        site: site.reducer,
     }
 })
 
