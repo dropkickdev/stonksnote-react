@@ -17,14 +17,17 @@ const GuestHeader = ({theme}) => {
                                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav">
-                                <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'} exact>Home</NavLink></li>
-                                <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.REGISTER_URL}`}>Register</NavLink></li>
-                                <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.LOGIN_URL}`}>Login</NavLink></li>
-                                <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Foo</NavLink></li>
-                            </ul>
-                        </div>
+<div className="collapse navbar-collapse justify-content-between" id="navbarNav">
+    <ul className="navbar-nav">
+        <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'} exact>Home</NavLink></li>
+        <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.REGISTER_URL}`}>Register</NavLink></li>
+        <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.LOGIN_URL}`}>Login</NavLink></li>
+        <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Foo</NavLink></li>
+    </ul>
+    <ul className="navbar-nav">
+        <li className={'nav-item navbar-text'}>Watevs</li>
+    </ul>
+</div>
                     </div>
                 </nav>
             </div>
@@ -46,12 +49,15 @@ const UserHeader = ({theme}) => {
                                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav">
-                                <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'}>Home</NavLink></li>
-                                <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.LOGOUT_URL}`}>Logout</NavLink></li>
-                            </ul>
-                        </div>
+<div className="navbar-collapse collapse justify-content-between" id="navbarNav">
+    <ul className="navbar-nav">
+        <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'}>Home</NavLink></li>
+        <li className={'nav-item navbar-text'}>Profile</li>
+    </ul>
+    <ul className={'navbar-nav'}>
+        <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.LOGOUT_URL}`}>Logout</NavLink></li>
+    </ul>
+</div>
                     </div>
                 </nav>
             </div>
