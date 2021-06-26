@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { Redirect, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
 import { Field, Form, Formik } from "formik"
 import * as yup from "yup"
@@ -6,18 +7,20 @@ import * as yup from "yup"
 import api from "../../app/axios"
 import GuestTemplate from "../../templates/layouts/GuestTemplate"
 import { SimpleInputHTML } from "../../templates/partials/forms"
-import { login, set_pageclass } from "../../app/redux/slices"
+import { login, logout, set_pageclass } from "../../app/redux/slices"
+import { api_login, api_generate_access_token, api_logout } from "../../app/api/auth-account"
 
 
 const Login = props => {
     const dispatch = useDispatch()
+    const history = useHistory()
     useEffect(() => {
         dispatch(set_pageclass('login-app'))
     }, [])
 
     const init = {
-        email: '',
-        password: '',
+        email: 'enchance@gmail.com',
+        password: 'pass123',
     }
 
     const schema = yup.object({
@@ -28,19 +31,25 @@ const Login = props => {
     const formik = {
         initialValues: init,
         validationSchema: schema,
-        onSubmit: ({email, password}, actions) => {
+        onSubmit: async ({email, password}, actions) => {
             const form = new FormData()
             form.set('username', email)
             form.set('password', password)
 
-            api.post('/auth/login', form)
-                .then(res => {
-                    console.table(res.data)
-                })
-                .catch(({response: {data: {detail}, status}}) => {
-                    console.log(detail)
-                    console.log(status)
-                })
+            try {
+                const res = await api_login(form)
+                dispatch(login({
+                    email,
+                    display: res.data.display,
+                    access_token: res.data.access_token,
+                    is_verified: res.data.is_verified,
+                }))
+                history.replace('/')
+            }
+            catch({response: {status, data: {detail}}}) {
+                console.log(status, detail)
+            }
+            // return <Redirect from={ '/logout' } to={'/'} />
         }
     }
 
@@ -96,6 +105,23 @@ const Login = props => {
         </GuestTemplate>
     )
 }
+
+
+export const Logout = () => {
+    const dispatch = useDispatch()
+    useEffect(async () => {
+        try {
+            await api_logout()
+            dispatch(logout())
+        }
+        catch(err) {
+            console.warn('[Unable to logout]')
+            console.log(err.response)
+        }
+    }, [])
+    return <Redirect from={ '/logout' } to={'/'} />
+}
+
 
 export const FooPage = () => (
     <GuestTemplate>

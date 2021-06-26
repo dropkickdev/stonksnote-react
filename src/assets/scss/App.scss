@@ -23,6 +23,7 @@ html, body {background:$bg-gray;}
 
 #header {}
 #navbar {
+    li.display {margin-right:20px;}
     @include media-breakpoint-down(lg) {
         a.nav-link:hover {background:none!important;}
     }
