@@ -38,6 +38,7 @@ const Login = props => {
 
             try {
                 const res = await api_login(form)
+                console.log(res.data.access_token)
                 dispatch(login({
                     email,
                     display: res.data.display,

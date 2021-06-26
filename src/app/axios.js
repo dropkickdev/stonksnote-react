@@ -25,8 +25,8 @@ api.interceptors.request.use(req => {
     return err
 })
 
-// TODO: Renewing the access_token
-// TODO: Why can't fapi access refresh_token cookie?
+// // TODO: Renewing the access_token
+// // TODO: Why can't fapi access refresh_token cookie?
 // api.interceptors.response.use(res => {
 //     console.log('[Response interceptor SUCCESS]')
 //     return res
