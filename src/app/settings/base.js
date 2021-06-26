@@ -12,7 +12,7 @@ let base_settings = {
     CHANGE_PASSWORD_URL: '/change-password',
 
     // Auth
-    ACCESS_TOKEN_URL: '/token',
+    ACCESS_TOKEN_API: '/auth/token',
 
     NOTIFICATION: {
         REGISTER_OK_URL: '/n/registration-ok',

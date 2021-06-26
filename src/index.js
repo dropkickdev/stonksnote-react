@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter, Router } from "react-router-dom"
 import { Provider } from "react-redux"
 import { createBrowserHistory } from 'history'
 
@@ -15,9 +15,11 @@ export const history = createBrowserHistory()
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
+            <Router history={history}>
+                {/*<BrowserRouter>*/}
+                    <App />
+                {/*</BrowserRouter>*/}
+            </Router>
         </Provider>
     </React.StrictMode>, document.getElementById('root')
 );
