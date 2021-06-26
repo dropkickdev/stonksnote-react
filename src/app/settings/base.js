@@ -11,7 +11,6 @@ let base_settings = {
     LOST_PASSWORD_URL: '/lost-password',
     CHANGE_PASSWORD_URL: '/change-password',
 
-
     // Auth
     ACCESS_TOKEN_URL: '/token',
 
@@ -24,6 +23,8 @@ let base_settings = {
         RESET_PASSWORD_OK_URL: '/n/password-reset-ok',
         RESET_PASSWORD_FAIL_URL: '/n/password-reset-fail',
     },
+
+    ERROR_401_URL: '/'
 
 }
 

@@ -8,16 +8,24 @@ export const auth  = createSlice({
         display: '',
         email  : '',
         access_token: '',
+        is_verified: false,
+        foo: 'bar',
     },
     reducers: {
-        login: (state, {payload: {display, email}}) => {
+        login: (state, {payload}) => {
+            const {display, email, access_token, is_verified} = payload
             state.is_auth = true
             state.display = display
             state.email   = email
+            state.access_token = access_token
+            state.is_verified = is_verified
         },
         logout: (state) => {
             state.is_auth = false
             state.display = ''
+            state.email = ''
+            state.access_token = ''
+            state.is_verified = false
         },
         set_access_token: (state, {payload}) => {
             state.access_token = payload
