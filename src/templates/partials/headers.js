@@ -41,9 +41,11 @@ const GuestHeader = ({theme}) => {
             <div id="navbar">
                 <nav className="navbar navbar-expand-lg navbar-dark">
                     <div className="container">
-                        <Link className="navbar-brand" to="/">
-                            <img src={logo} alt="" width="30" height="24" />
-                        </Link>
+                        <div className="d-flex justify-content-start">
+                            <Link to="/" className={'navbar-brand'}><img src={logo} alt="" width="30" height="24" /></Link>
+                            <NavLink className={'navbar-brand'} to={`${s.LOGIN_URL}`}>Login</NavLink>
+                            <button onClick={doit} className={'btn btn-primary d-lg-none'}>Test private</button>
+                        </div>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
@@ -56,7 +58,7 @@ const GuestHeader = ({theme}) => {
         <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Foo</NavLink></li>
     </ul>
     <ul className="navbar-nav">
-        <li className={'nav-item me-3'}>
+        <li className={'nav-item me-3 d-none d-lg-inline-block'}>
             <button onClick={doit} className={'btn btn-primary w-100'}>Test private</button>
         </li>
         <li className={'nav-item navbar-text'}>Watevs</li>
@@ -78,9 +80,11 @@ const UserHeader = ({theme}) => {
             <div id="navbar">
                 <nav className="navbar navbar-expand-lg navbar-dark">
                     <div className="container">
-                        <Link className="navbar-brand" to="/">
-                            <img src={logo} alt="" width="30" height="24" />
-                        </Link>
+                        <div className="d-flex justify-content-start">
+                            <Link to="/" className={'navbar-brand'}><img src={logo} alt="" width="30" height="24" /></Link>
+                            <NavLink className={'navbar-brand'} to={`${s.LOGOUT_URL}`}>Logout</NavLink>
+                            <button onClick={doit} className={'btn btn-primary d-lg-none'}>Test private</button>
+                        </div>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
@@ -91,7 +95,7 @@ const UserHeader = ({theme}) => {
         <li className={'nav-item navbar-text'}>Profile</li>
     </ul>
     <ul className={'navbar-nav'}>
-        <li className={'nav-item me-3'}>
+        <li className={'nav-item me-3 d-none d-lg-inline-block'}>
             <button onClick={doit} className={'btn btn-primary w-100'}>Test private</button>
         </li>
         <li className={'nav-item navbar-text display d-none d-lg-block'}><strong>Hi {display}!</strong></li>
