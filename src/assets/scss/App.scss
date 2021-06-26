@@ -22,6 +22,11 @@ Divider: cybermedium
 html, body {background:$bg-gray;}
 
 #header {}
+#navbar {
+    @include media-breakpoint-down(lg) {
+        a.nav-link:hover {background:none!important;}
+    }
+}
 
 #content {}
 
