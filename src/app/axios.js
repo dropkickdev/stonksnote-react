@@ -55,11 +55,8 @@ api.interceptors.response.use(res => {
             return history.replace(s.ERROR_401_URL)
         }
 
-
-        const state = store.getState()
-        store.dispatch(set_access_token(state.auth.access_token, {
-            payload: new_access_token
-        }))
+        store.dispatch(set_access_token(new_access_token))
+        // set_access_token(action)
 
         // store.dispatch({
         //     ...state,
