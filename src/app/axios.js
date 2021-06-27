@@ -5,12 +5,13 @@ import s from "./settings/settings"
 import { history } from "../index"
 import store from "./redux/store"
 import { create_access_token } from "./api/auth-account"
-import { logout } from "./redux/slices"
+import { logout, set_access_token, access_token_action } from "./redux/slices"
 
 
 const api = axios.create({
     baseURL: s.AXIOS_BASEURL,
-    timeout: 2000
+    timeout: 2000,
+    withCredentials: true,
 })
 
 api.interceptors.request.use(req => {
@@ -33,8 +34,6 @@ api.interceptors.response.use(res => {
 }, async err => {
     console.log(err.response.status, '[Response interceptor FAIL from]', err.config.url)
 
-    // TODO: Don't logout so quickly. Maybe increase access_token time if there is an error
-    //  with the /auth/token api
     // Prevent infinite loops
     if(err.config.url === s.ACCESS_TOKEN_API) {
         store.dispatch(logout(store.getState()))
@@ -50,17 +49,36 @@ api.interceptors.response.use(res => {
         }
 
         const new_access_token = await create_access_token()
+        console.log('[Access token]', new_access_token)
 
         if(!new_access_token) {
             return history.replace(s.ERROR_401_URL)
         }
 
-        console.log('[New access token]', new_access_token)
+
+        const state = store.getState()
+        store.dispatch(set_access_token(state.auth.access_token, {
+            payload: new_access_token
+        }))
+
+        // store.dispatch({
+        //     ...state,
+        //     auth: {
+        //         ...state.auth,
+        //         access_token: new_access_token
+        //     }
+        // })
+
+        // return api.request(err.config)
 
         // if(new_access_token) {
         //     // retry the request with the updated access_token
-        //     err.config.headers.Authorization = new_access_token
-        //     return api.request(err.config)
+        //     // err.config.headers.Authorization = new_access_token
+        //     // store.dispatch(set_access_token(store.getState(), {
+        //     //     payload: new_access_token
+        //     // }))
+        //     console.log('[Config]', err.config)
+        //
         // }
         // else {
         //     console.log('[no new access token, redirect to 401]')

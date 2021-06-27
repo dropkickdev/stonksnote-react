@@ -12,7 +12,7 @@ const doit = async () => {
         console.table(res.data)
     }
     catch({response}) {
-        console.log('[A new token should have been recieved.]')
+        console.log('[Unable to get a nenw key]')
     }
 }
 
@@ -93,6 +93,7 @@ const UserHeader = ({theme}) => {
     <ul className="navbar-nav">
         <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'}>Home</NavLink></li>
         <li className={'nav-item navbar-text'}>Profile</li>
+        <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Foo</NavLink></li>
     </ul>
     <ul className={'navbar-nav'}>
         <li className={'nav-item me-3 d-none d-lg-inline-block'}>

@@ -1,5 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, createAction } from "@reduxjs/toolkit"
 
+
+// export const access_token_action = createAction('SET_ACCESS_TOKEN')
 
 export const auth  = createSlice({
     name: 'authentication',
