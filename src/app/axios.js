@@ -33,17 +33,12 @@ api.interceptors.response.use(res => {
 }, async err => {
     console.log(err.response.status, '[Response interceptor FAIL from]', err.config.url)
 
+    // TODO: Don't logout so quickly. Maybe increase access_token time if there is an error
+    //  with the /auth/token api
     // Prevent infinite loops
-    const originalRequest = err.config;
-    // console.log('[Original request]', originalRequest)
-    if (err.response.status === 403 && originalRequest.url === s.ACCESS_TOKEN_API) {
+    if(err.config.url === s.ACCESS_TOKEN_API) {
         store.dispatch(logout(store.getState()))
-        console.log('[Redirecting to the Login page]')
-        // history.push(s.LOGIN_URL)
-        // history.replace(s.LOGIN_URL)
-        // return err
     }
-
 
     if(err.response.status === 401) {
         const {auth: {is_auth}} = store.getState()
@@ -51,10 +46,15 @@ api.interceptors.response.use(res => {
 
         if(!is_auth) {
             // console.log('[Not authenticated, redirect to 401 error]')
-            return history.push(s.ERROR_401_URL)
+            return history.replace(s.ERROR_401_URL)
         }
 
         const new_access_token = await create_access_token()
+
+        if(!new_access_token) {
+            return history.replace(s.ERROR_401_URL)
+        }
+
         console.log('[New access token]', new_access_token)
 
         // if(new_access_token) {

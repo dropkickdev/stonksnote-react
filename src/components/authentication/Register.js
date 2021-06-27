@@ -50,7 +50,7 @@ const Register = props => {
         onSubmit: (values, actions) => {
             api_register(values)
                 .then(res => {
-                    console.log(res.data)
+                    console.table(res.data)
                 })
                 .catch(({response: {data: {detail}, status}}) => {
                     console.log(detail)

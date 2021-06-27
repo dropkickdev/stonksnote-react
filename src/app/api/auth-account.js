@@ -10,7 +10,6 @@ export const api_logout = () => api.get('/auth/logout')
 export const api_generate_access_token = () => api.post('/auth/token')
 
 export const generate_access_token = async () => {
-    // console.log('[generate_access_token]')
     try {
         const res = await api_generate_access_token()
         return res.data.access_token
