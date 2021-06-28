@@ -1,17 +1,20 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Redirect, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
 import { Field, Form, Formik } from "formik"
 import * as yup from "yup"
 
-import api from "../../app/axios"
 import GuestTemplate from "../../templates/layouts/GuestTemplate"
 import { SimpleInputHTML } from "../../templates/partials/forms"
 import { login, logout, set_pageclass } from "../../app/redux/slices"
-import { api_login, api_generate_access_token, api_logout } from "../../app/api/auth-account"
+import { api_login, api_logout } from "../../app/api/auth-account"
 
 
-const Login = props => {
+
+const Login = () => {
+    const [state, setState] = useState({
+        formerror: false
+    })
     const dispatch = useDispatch()
     const history = useHistory()
     useEffect(() => {
@@ -38,19 +41,20 @@ const Login = props => {
 
             try {
                 const res = await api_login(form)
-                console.log(res.data.access_token)
                 dispatch(login({
                     email,
                     display: res.data.display,
                     access_token: res.data.access_token,
                     is_verified: res.data.is_verified,
                 }))
+
                 history.replace('/')
             }
-            catch({response: {status, data: {detail}}}) {
-                console.log(status, detail)
+            catch(err) {
+                setState({
+                    formerror: true
+                })
             }
-            // return <Redirect from={ '/logout' } to={'/'} />
         }
     }
 
@@ -60,6 +64,11 @@ const Login = props => {
 
                 <div className="row">
                     <div className="col-sm-9 col-md-7 col-lg-5 col-xxl-5 mx-auto">
+
+                        {state.formerror && (
+                            <div className="alert alert-danger">Something seems wrong. Did you type your password correctly?</div>
+                        )}
+
                         <div className="card">
                             <div className="card-body">
                                 <header>

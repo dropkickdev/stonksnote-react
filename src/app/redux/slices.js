@@ -11,7 +11,6 @@ export const auth  = createSlice({
         email  : '',
         access_token: '',
         is_verified: false,
-        foo: 'bar',
     },
     reducers: {
         login: (state, {payload}) => {
@@ -21,20 +20,28 @@ export const auth  = createSlice({
             state.email   = email
             state.access_token = access_token
             state.is_verified = is_verified
+            localStorage.setItem('access_token', access_token)
         },
-        logout: (state) => {
+        logout: state => {
             state.is_auth = false
             state.display = ''
             state.email = ''
             state.access_token = ''
             state.is_verified = false
+            localStorage.clear()
+        },
+        reload_user_data: (state, {payload: {display, email, is_verified}}) => {
+            state.is_auth = true
+            state.display = display
+            state.email   = email
+            state.is_verified = is_verified
         },
         set_access_token: (state, {payload}) => {
             state.access_token = payload
         },
         set_display: (state, {payload}) => {
             state.display = payload
-        }
+        },
     }
 })
 
@@ -56,5 +63,5 @@ export const site = createSlice({
 })
 
 
-export const {login, logout, set_access_token, set_display} = auth.actions
+export const {login, logout, reload_user_data, set_access_token, set_display} = auth.actions
 export const {set_theme, set_pageclass} = site.actions
