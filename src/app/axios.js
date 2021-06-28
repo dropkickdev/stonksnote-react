@@ -5,7 +5,7 @@ import s from "./settings/settings"
 import { history } from "../index"
 import store from "./redux/store"
 import { create_access_token } from "./api/auth-account"
-import { logout, set_access_token, access_token_action } from "./redux/slices"
+import { logout, set_access_token } from "./redux/slices"
 
 
 const api = axios.create({
@@ -52,36 +52,15 @@ api.interceptors.response.use(res => {
         console.log('[Access token]', new_access_token)
 
         if(!new_access_token) {
+            store.dispatch(logout())
             return history.replace(s.ERROR_401_URL)
         }
 
+        // Update state with the new token
         store.dispatch(set_access_token(new_access_token))
-        // set_access_token(action)
 
-        // store.dispatch({
-        //     ...state,
-        //     auth: {
-        //         ...state.auth,
-        //         access_token: new_access_token
-        //     }
-        // })
-
-        // return api.request(err.config)
-
-        // if(new_access_token) {
-        //     // retry the request with the updated access_token
-        //     // err.config.headers.Authorization = new_access_token
-        //     // store.dispatch(set_access_token(store.getState(), {
-        //     //     payload: new_access_token
-        //     // }))
-        //     console.log('[Config]', err.config)
-        //
-        // }
-        // else {
-        //     console.log('[no new access token, redirect to 401]')
-        //     store.dispatch(logout())
-        //     // return history.push(s.ERROR_401_URL)
-        // }
+        // Retry the request with the updated access_token
+        return api.request(err.config)
     }
     return err
 })
