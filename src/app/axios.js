@@ -26,9 +26,8 @@ api.interceptors.request.use(req => {
     return err
 })
 
-// // TODO: Renewing the access_token
-// // TODO: Why can't fapi access the refresh_token cookie?
 api.interceptors.response.use(res => {
+    console.log('[URL]', res.config.url)
     console.log('[Response interceptor SUCCESS]')
     return res
 }, async err => {
@@ -60,6 +59,7 @@ api.interceptors.response.use(res => {
         store.dispatch(set_access_token(new_access_token))
 
         // Retry the request with the updated access_token
+        // console.log(err.response)
         return api.request(err.config)
     }
     return err
