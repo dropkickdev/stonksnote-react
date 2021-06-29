@@ -14,6 +14,18 @@ class Con {
             console.table(...args)
         }
     }
+
+    warn = (...args) => {
+        if(this.debug) {
+            console.warn(...args)
+        }
+    }
+
+    error = (...args) => {
+        if(this.debug) {
+            console.error(...args)
+        }
+    }
 }
 
 const con = new Con()

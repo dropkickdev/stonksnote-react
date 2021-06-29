@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useSelector, useDispatch } from "react-redux"
 
+import con from "./utils"
 import s from "./settings/settings"
 import { history } from "../index"
 import store from "./redux/store"
@@ -17,21 +18,21 @@ const api = axios.create({
 api.interceptors.request.use(req => {
     const {auth: {access_token}} = store.getState()
     if(access_token) {
-        // console.log('[SUCCESS Request interceptor] access_token', access_token)
+        // con.log('[SUCCESS Request interceptor] access_token', access_token)
         req.headers.Authorization = `Bearer ${access_token}`
     }
     return req
 }, async err => {
-    console.log('[ERROR Request interceptor]', err)
+    con.log('[ERROR Request interceptor]', err)
     return err
 })
 
 api.interceptors.response.use(res => {
-    console.log('[URL]', res.config.url)
-    console.log('[Response interceptor SUCCESS]')
+    con.log('[URL]', res.config.url)
+    con.log('[Response interceptor SUCCESS]')
     return res
 }, async err => {
-    console.log(err.response.status, '[Response interceptor FAIL from]', err.config.url)
+    con.log(err.response.status, '[Response interceptor FAIL from]', err.config.url)
 
     // Prevent infinite loops
     if(err.config.url === s.ACCESS_TOKEN_API) {
@@ -40,15 +41,15 @@ api.interceptors.response.use(res => {
 
     if(err.response.status === 401) {
         const {auth: {is_auth}} = store.getState()
-        console.log(is_auth)
+        con.log(is_auth)
 
         if(!is_auth) {
-            // console.log('[Not authenticated, redirect to 401 error]')
+            // con.log('[Not authenticated, redirect to 401 error]')
             return history.replace(s.ERROR_401_URL)
         }
 
         const new_access_token = await create_access_token()
-        console.log('[Access token]', new_access_token)
+        con.log('[Access token]', new_access_token)
 
         if(!new_access_token) {
             store.dispatch(logout())
@@ -59,7 +60,7 @@ api.interceptors.response.use(res => {
         store.dispatch(set_access_token(new_access_token))
 
         // Retry the request with the updated access_token
-        // console.log(err.response)
+        // con.log(err.response)
         return api.request(err.config)
     }
     return err
