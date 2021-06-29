@@ -2,6 +2,8 @@ import { useSelector } from "react-redux"
 import { NavLink, Link } from "react-router-dom"
 import s from "../../app/settings/settings"
 import logo from '../../assets/images/bootstrap-logo.svg'
+
+import con from "../../app/utils"
 import api from "../../app/axios"
 
 
@@ -9,10 +11,10 @@ import api from "../../app/axios"
 const doit = async () => {
     try {
         const res = await api.get('/demo/private')
-        console.table(res.data)
+        con.table(res.data)
     }
     catch({response}) {
-        console.log('[Unable to get a nenw key]')
+        con.log('[Unable to get a nenw key]')
     }
 }
 

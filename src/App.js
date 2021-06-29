@@ -3,9 +3,10 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { Route } from 'react-router-dom'
 
+import con from "./app/utils"
 import AuthRoutes, { FooRoutes } from "./components/authentication/routes"
 import HomePage from "./components/Home"
-import { set_access_token, reload_user_data } from "./app/redux/slices"
+import { set_access_token, reload_user_data, logout } from "./app/redux/slices"
 import { api_reload_user_data } from "./app/api/auth-account"
 
 
@@ -21,12 +22,11 @@ function App() {
             dispatch(set_access_token(access_token))
             api_reload_user_data()
                 .then(res => {
-                    console.log(res.data)
                     dispatch(reload_user_data(res.data))
+                    con.log('[Data reloaded]')
                 })
                 .catch(err => {
-                    localStorage.clear()
-                    console.log(err)
+                    dispatch(logout())
                 })
         }
     }, [])
