@@ -11,7 +11,7 @@ const UserTemplate = props => {
     return (
         <BaseTemplate>
             <Header />
-            <div id={'content'} className={`${site.theme} container`}>
+            <div id={'content'} className={`${site.theme} container-fluid g-0 left-sb`}>
                 {props.children}
             </div>
             <Footer />

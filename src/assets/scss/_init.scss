@@ -1,7 +1,8 @@
 
+ul.nolist {padding:0; list-style:none;}
 
 html, body {height:100%; font-size:$font-size-base; color:$font-color; font-family:$font-family;}
-body {overflow:scroll;}
+body {overflow-y:scroll;}
 
 h1 {font-size:$font-size-base * 3.5; font-family:$header-family; font-weight:$header-weight;}
 h2 {font-size:$font-size-base * 2.5; font-family:$header-family; font-weight:$header-light;}
@@ -23,3 +24,5 @@ ______
 */
 textarea {max-height:500px;}
 .field-error {font-size:.9rem;}
+
+

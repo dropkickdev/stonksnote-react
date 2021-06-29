@@ -29,11 +29,25 @@ html, body {background:$bg-gray;}
     }
 }
 
-#content {}
+#content {
+    &.left-sb {display:grid; height:100vh;
+        @include media-breakpoint-up(md) {
+            grid-template-columns:250px 1fr;
+        }
+        @include media-breakpoint-up(lg) {
+            grid-template-columns:300px 1fr;
+        }
+        aside.sidebar {}
+        main {background:tint-color($dark-theme-bg, 10%);
+            .listing {
+                li {display:grid; grid-template-columns:100px 1fr 100px; background:#AAA; padding:10px; color:#333; margin-bottom:1px;}
+            }
+        }
+    }
+}
 
 #footer {padding:20px 0;}
 
-#content {padding:50px 0;}
 
 //#footer {background:#777; color:#FFF; padding:10px 0;}
 

@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom'
 
 import con from "./app/utils"
 import AuthRoutes, { FooRoutes } from "./components/authentication/routes"
+import TradeRoutes from "./components/stocks/routes"
 import HomePage from "./components/Home"
 import { set_access_token, reload_user_data, logout } from "./app/redux/slices"
 import { api_reload_user_data } from "./app/api/auth-account"
@@ -38,6 +39,7 @@ function App() {
 
                 <Route path={'/'} component={HomePage} exact />
                 <Route path={''} component={AuthRoutes} />
+                <Route path={'/trades'} component={TradeRoutes} />
                 <Route path={''} component={FooRoutes} />
 
             </div>

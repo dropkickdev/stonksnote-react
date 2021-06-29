@@ -42,8 +42,10 @@ const GuestHeader = () => {
         <div className="container">
             <div className="d-flex justify-content-start">
                 <Link to="/" className={'navbar-brand'}><img src={logo} alt="" width="30" height="24" /></Link>
+                {/*
                 <NavLink className={'navbar-brand'} to={`${s.LOGIN_URL}`}>Login</NavLink>
                 <button onClick={doit} className={'btn btn-primary d-lg-none'}>Test private</button>
+                */}
             </div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,8 +77,11 @@ const UserHeader = () => {
         <div className="container">
             <div className="d-flex justify-content-start">
                 <Link to="/" className={'navbar-brand'}><img src={logo} alt="" width="30" height="24" /></Link>
+                <DeviceSizes />
+                {/*
                 <NavLink className={'navbar-brand'} to={`${s.LOGOUT_URL}`}>Logout</NavLink>
                 <button onClick={doit} className={'btn btn-primary d-lg-none'}>Test private</button>
+                */}
             </div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,12 +91,14 @@ const UserHeader = () => {
                 <ul className="navbar-nav">
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'}>Home</NavLink></li>
                     <li className={'nav-item navbar-text'}>Profile</li>
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Foo</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'}>Trades</NavLink></li>
                 </ul>
                 <ul className={'navbar-nav'}>
+                    {/*
                     <li className={'nav-item me-3 d-none d-lg-inline-block'}>
                         <button onClick={doit} className={'btn btn-primary w-100'}>Test private</button>
                     </li>
+                    */}
                     <li className={'nav-item navbar-text display d-none d-lg-block'}><strong>Hi {display}!</strong></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.LOGOUT_URL}`}>Logout</NavLink></li>
                     <li className={'nav-item navbar-text d-none d-lg-inline-block'}><DeviceSizes /></li>
