@@ -1,12 +1,28 @@
+import { Link } from "react-router-dom"
 
 
 const SidebarAdmin = () => {
     return (
         <>
-            <aside id={'sidebar'} className="sidebar d-none d-md-block">
-                <h4>Sidebar</h4>
-                <div className="item">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor nostrum, unde. Aliquam, amet animi aspernatur consectetur consequatur culpa, dolorem doloribus eveniet illo laborum magnam perferendis qui sed. Non, perspiciatis, quo.</p>
+            <aside id={'sidebar'} className="sidebar d-none d-md-block px-3 pt-5">
+                <div className="widget">
+                    <h4>Groups</h4>
+                    <div>
+                        <ul className={'nav flex-column'}>
+                            <li className={'nav-item'}>
+                                <Link to={ '' }>Group 1</Link>
+                            </li>
+                            <li className={'nav-item'}>
+                                <Link to={ '' }>Group 2</Link>
+                            </li>
+                            <li className={'nav-item'}>
+                                <Link to={ '' }>Group 3</Link>
+                            </li>
+                            <li className={'nav-item'}>
+                                <Link to={ '' }>Group 4</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </aside>
         </>

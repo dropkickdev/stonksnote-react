@@ -1,3 +1,4 @@
+import { NavLinku, Link } from "react-router-dom"
 import Sidebar from "../../templates/partials/sidebars"
 import UserTemplate from "../../templates/layouts/UserTemplate"
 
@@ -5,43 +6,60 @@ import UserTemplate from "../../templates/layouts/UserTemplate"
 export const TradeList = () => {
     return (
         <UserTemplate>
-            {/*
-            <div className="x">
-                <div className="a">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut enim est fuga inventore molestias, quasi voluptatem. Ab accusantium alias eveniet maxime neque optio praesentium provident sint? Commodi, repudiandae, saepe!</div>
-                <div className="a">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut enim est fuga inventore molestias, quasi voluptatem. Ab accusantium alias eveniet maxime neque optio praesentium provident sint? Commodi, repudiandae, saepe!</div>
-                <div className="a">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut enim est fuga inventore molestias, quasi voluptatem. Ab accusantium alias eveniet maxime neque optio praesentium provident sint? Commodi, repudiandae, saepe!</div>
-                <div className="a">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut enim est fuga inventore molestias, quasi voluptatem. Ab accusantium alias eveniet maxime neque optio praesentium provident sint? Commodi, repudiandae, saepe!</div>
-            </div>
-            */}
+
             <Sidebar />
-            <main id={'main'} className={'px-5'}>
-                <h2>Main content</h2>
+
+            <main id={'main'} className={'px-3 px-md-5 pt-5'}>
+                <h2>Active Trades</h2>
+                <nav>
+                    <ul className="nav nav-pills bg-links">
+                        <li className="nav-item">
+                            <Link to={''} className="nav-link" aria-current="page">All Trades</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to={''} className="nav-link" aria-current="page">Active</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to={''} className="nav-link" aria-current="page">Gain</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to={''} className="nav-link" aria-current="page">Loss</Link>
+                        </li>
+                    </ul>
+                </nav>
                 <div className="listing">
                     <ul class={'nolist'}>
                         <li>
                             <div>aaa</div>
-                            <div>aaa</div>
-                            <div>aaa</div>
+                            <div className={'px-4'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque debitis facere labore minus praesentium quisquam vitae voluptatem! Accusantium alias atque dolor harum ipsam neque possimus quisquam sapiente voluptas voluptatem.</div>
+                            <div className={'text-end'}>
+                                <button className="btn btn-secondary btn-sm me-2">Group ico</button>
+                                <button className="btn btn-primary btn-sm">Sell stock</button>
+                            </div>
                         </li>
                         <li>
                             <div>aaa</div>
-                            <div>aaa</div>
-                            <div>aaa</div>
+                            <div className={'px-4'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque debitis facere labore minus praesentium quisquam vitae voluptatem! Accusantium alias atque dolor harum ipsam neque possimus quisquam sapiente voluptas voluptatem.</div>
+                            <div className={'text-end'}>
+                                <button className="btn btn-secondary btn-sm me-2">Group ico</button>
+                                <button className="btn btn-primary btn-sm">Sell stock</button>
+                            </div>
                         </li>
                         <li>
                             <div>aaa</div>
-                            <div>aaa</div>
-                            <div>aaa</div>
+                            <div className={'px-4'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque debitis facere labore minus praesentium quisquam vitae voluptatem! Accusantium alias atque dolor harum ipsam neque possimus quisquam sapiente voluptas voluptatem.</div>
+                            <div className={'text-end'}>
+                                <button className="btn btn-secondary btn-sm me-2">Group ico</button>
+                                <button className="btn btn-primary btn-sm">Sell stock</button>
+                            </div>
                         </li>
                         <li>
                             <div>aaa</div>
-                            <div>aaa</div>
-                            <div>aaa</div>
-                        </li>
-                        <li>
-                            <div>aaa</div>
-                            <div>aaa</div>
-                            <div>aaa</div>
+                            <div className={'px-4'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque debitis facere labore minus praesentium quisquam vitae voluptatem! Accusantium alias atque dolor harum ipsam neque possimus quisquam sapiente voluptas voluptatem.</div>
+                            <div className={'text-end'}>
+                                <button className="btn btn-secondary btn-sm me-2">Group ico</button>
+                                <button className="btn btn-primary btn-sm">Sell stock</button>
+                            </div>
                         </li>
                     </ul>
                 </div>
