@@ -11,7 +11,6 @@ import { set_access_token, reload_user_data, logout } from "./app/redux/slices"
 import { api_reload_user_data } from "./app/api/auth-account"
 
 
-
 function App() {
     const {site} = useSelector(state => state)
     const dispatch = useDispatch()

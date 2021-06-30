@@ -41,9 +41,37 @@ html, body {background:$bg-gray;}
         aside.sidebar {}
         main {background:tint-color($dark-theme-bg, 10%);
             .listing {
-                li {display:grid; grid-template-columns:auto 1fr auto; background:#AAA; padding:7px 7px 7px 15px; color:#333; margin-bottom:1px; align-items:center;
-                    div:nth-child(2) {text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+                table {color:#333;}
+                thead {color:#FFF; font-weight:bold;}
+                tbody {background:#b1b1b1;
+                    tr {
+                        &:hover {background:tint-color(#b1b1b1, 15%);}
+                        td {border-bottom:1px solid $dark-theme-bg; border-right:1px solid #777; padding:0;
+                            height:40px; line-height:40px; white-space:nowrap;
+                            &.name {font-weight:bold; width:100%}
+                            &.buysell, &.shares, &.date, &.action {white-space:nowrap;}
+                            &:first-child {padding-left:20px;}
+                            //&.notes {width:1fr;}
+                            //&.notes {position:relative; width:200px; overflow:hidden; text-overflow:ellipsis;  white-space:nowrap;}
+                            //&.action {width:auto;}
+                        }
+                    }
                 }
+                //tr {display:grid; grid-template-columns:90px auto auto auto 1fr auto auto; grid-template-rows:40px;
+                //    td {
+                //
+                //        &:last-child {border-right:none;}
+                //    }
+                //}
+                /*
+                li {display:grid; grid-template-columns:90px auto auto auto 1fr 120px 130px; grid-template-rows:40px; line-height:40px;
+                    background:#b1b1b1; color:#333; margin-bottom:1px;
+                    div {
+
+
+                    }
+                }
+                */
             }
         }
     }

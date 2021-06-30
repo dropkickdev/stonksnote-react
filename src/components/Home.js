@@ -1,11 +1,12 @@
 import { useSelector } from "react-redux"
 
 import GuestTemplate from "../templates/layouts/GuestTemplate"
-import UserTemplate from "../templates/layouts/UserTemplate"
-
+// import UserTemplate from "../templates/layouts/UserTemplate"
+import { TradeList } from "./stocks/Trades"
 
 
 const HomeGuest = () => {
+    const aaa = ''
     return (
         <GuestTemplate>
             <div className="container">
@@ -22,6 +23,8 @@ const HomeGuest = () => {
 
 const HomeUser = () => {
     return (
+        <TradeList />
+        /*
         <UserTemplate>
             <div className="container">
                 <main>
@@ -29,6 +32,7 @@ const HomeUser = () => {
                 </main>
             </div>
         </UserTemplate>
+        * */
     )
 }
 

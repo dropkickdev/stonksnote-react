@@ -5,7 +5,7 @@ import logo from '../../assets/images/bootstrap-logo.svg'
 
 import con from "../../app/utils"
 import api from "../../app/axios"
-
+import { TradeList } from "../../components/stocks/Trades"
 
 
 const doit = async () => {
@@ -90,8 +90,7 @@ const UserHeader = () => {
             <div className="navbar-collapse collapse justify-content-between" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'}>Home</NavLink></li>
-                    <li className={'nav-item navbar-text'}>Profile</li>
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'}>Trades</NavLink></li>
+                    {/*<li className={'nav-item navbar-text'}>Profile</li>*/}
                 </ul>
                 <ul className={'navbar-nav'}>
                     {/*
