@@ -6,7 +6,6 @@ import { TradeList } from "./stocks/Trades"
 
 
 const HomeGuest = () => {
-    const aaa = ''
     return (
         <GuestTemplate>
             <div className="container">
