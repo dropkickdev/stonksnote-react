@@ -33,9 +33,9 @@ const Register = props => {
     yup.addMethod(yup.string, 'equalTo', equalTo);
 
     const init = {
-        email: '',
-        password: '',
-        repeat: ''
+        email: 'enchance@gmail.com',
+        password: 'pass123',
+        repeat: 'pass123'
     }
 
     const schema = yup.object({

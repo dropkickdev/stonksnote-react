@@ -40,14 +40,8 @@ const Login = () => {
             form.set('password', password)
 
             try {
-                const res = await api_login(form)
-                dispatch(login({
-                    email,
-                    display: res.data.display,
-                    access_token: res.data.access_token,
-                    is_verified: res.data.is_verified,
-                }))
-
+                const {data: {display, access_token, is_verified}} = await api_login(form)
+                dispatch(login({email, display, access_token, is_verified}))
                 history.replace('/')
             }
             catch(err) {
@@ -119,6 +113,7 @@ const Login = () => {
 
 export const Logout = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
     useEffect(async () => {
         try {
             await api_logout()
@@ -129,7 +124,7 @@ export const Logout = () => {
             console.log(err.response)
         }
     }, [])
-    return <Redirect from={ '/logout' } to={'/'} />
+    return <Redirect from={ '/auth/logout' } to={'/'} />
 }
 
 

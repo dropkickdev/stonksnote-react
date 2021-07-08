@@ -4,13 +4,6 @@ let base_settings = {
 
     AXIOS_BASEURL: '',
 
-    // URLs
-    LOGIN_URL: '/login',
-    LOGOUT_URL: '/logout',
-    REGISTER_URL: '/register',
-    LOST_PASSWORD_URL: '/lost-password',
-    CHANGE_PASSWORD_URL: '/change-password',
-
     // Auth
     ACCESS_TOKEN_API: '/auth/token',
 

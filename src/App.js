@@ -1,18 +1,20 @@
 import './App.css'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import con from "./app/utils"
-import AuthRoutes, { FooRoutes } from "./components/authentication/routes"
-import TradeRoutes from "./components/stocks/routes"
-import HomePage from "./components/Home"
+import { public_routes, private_routes } from "./app/routes"
 import { set_access_token, reload_user_data, logout } from "./app/redux/slices"
 import { api_reload_user_data } from "./app/api/auth-account"
+import HomePage from "./components/Home"
+import { FooPage } from "./components/authentication/Login"
+
+
 
 
 function App() {
-    const {site} = useSelector(state => state)
+    const {auth, site} = useSelector(state => state)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -31,15 +33,18 @@ function App() {
         }
     }, [])
 
-
     return (
         <>
             <div id={'app'} className={site.theme}>
 
-                <Route path={'/'} component={HomePage} exact />
-                <Route path={''} component={AuthRoutes} />
-                <Route path={'/trades'} component={TradeRoutes} />
-                <Route path={''} component={FooRoutes} />
+                <Switch>
+                    <>
+                        <Route path={'/'} component={HomePage} exact />
+                        <Route path={'/foo'} component={FooPage} exact />
+                        {private_routes.map((item, idx) => <Route key={idx} {...item} />)}
+                        {public_routes.map((item, idx) => <Route key={idx} {...item} />)}
+                    </>
+                </Switch>
 
             </div>
         </>

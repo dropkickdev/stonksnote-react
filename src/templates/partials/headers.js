@@ -5,7 +5,7 @@ import logo from '../../assets/images/bootstrap-logo.svg'
 
 import con from "../../app/utils"
 import api from "../../app/axios"
-import { TradeList } from "../../components/stocks/Trades"
+import { TradeList } from "../../components/trades/Trades"
 
 
 const doit = async () => {
@@ -54,15 +54,15 @@ const GuestHeader = () => {
             <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'} exact>Home</NavLink></li>
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.REGISTER_URL}`}>Register</NavLink></li>
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.LOGIN_URL}`}>Login</NavLink></li>
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Foo</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/register'}>Register</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/login'}>Login</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Open link foo</NavLink></li>
                 </ul>
                 <ul className="navbar-nav">
                     <li className={'nav-item me-3 d-none d-lg-inline-block'}>
                         <button onClick={doit} className={'btn btn-primary w-100'}>Test private</button>
                     </li>
-                    <li className={'nav-item navbar-text'}>Watevs</li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'}>Private</NavLink></li>
                     <li className={'nav-item navbar-text'}><DeviceSizes /></li>
                 </ul>
             </div>
@@ -89,7 +89,8 @@ const UserHeader = () => {
             </button>
             <div className="navbar-collapse collapse justify-content-between" id="navbarNav">
                 <ul className="navbar-nav">
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'}>Home</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'} exact>Home</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Open link foo</NavLink></li>
                     {/*<li className={'nav-item navbar-text'}>Profile</li>*/}
                 </ul>
                 <ul className={'navbar-nav'}>
@@ -99,7 +100,10 @@ const UserHeader = () => {
                     </li>
                     */}
                     <li className={'nav-item navbar-text display d-none d-lg-block'}><strong>Hi {display}!</strong></li>
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={`${s.LOGOUT_URL}`}>Logout</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/logout'}>Logout</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'}>Private</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/register'}>[Register]</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/login'}>[Login]</NavLink></li>
                     <li className={'nav-item navbar-text d-none d-lg-inline-block'}><DeviceSizes /></li>
                 </ul>
             </div>
