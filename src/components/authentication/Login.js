@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Field, Form, Formik } from "formik"
 import * as yup from "yup"
 
+import conutils from "../../app/utils"
 import GuestTemplate from "../../templates/layouts/GuestTemplate"
 import { SimpleInputHTML } from "../../templates/partials/forms"
 import { login, logout, set_pageclass } from "../../app/redux/slices"
@@ -41,6 +42,7 @@ const Login = () => {
 
             try {
                 const {data: {display, access_token, is_verified}} = await api_login(form)
+                conutils.table({email, display, access_token, is_verified})
                 dispatch(login({email, display, access_token, is_verified}))
                 history.replace('/')
             }

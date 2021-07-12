@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useSelector, useDispatch } from "react-redux"
 
-import con from "./utils"
+import conutils from "./utils"
 import s from "./settings/settings"
 import { history } from "../index"
 import store from "./redux/store"
@@ -23,16 +23,23 @@ api.interceptors.request.use(req => {
     }
     return req
 }, async err => {
-    con.log('[ERROR Request interceptor]', err)
+    const {auth} = store.getState()
+    conutils.warn('[ERROR Request interceptor]', err)
     return err
 })
 
 api.interceptors.response.use(res => {
-    con.log('[URL]', res.config.url)
-    con.log('[Response interceptor SUCCESS]')
+    conutils.log('[URL]', res.config.url)
+    conutils.log('[Response interceptor SUCCESS]')
     return res
 }, async err => {
-    con.log(err.response.status, '[Response interceptor FAIL from]', err.config.url)
+    const {auth} = store.getState()
+    if(!auth.is_auth) {
+        conutils.log('[You need to be signed in]')
+    }
+    else {
+        conutils.warn(err.response.status, '[Response interceptor FAIL from]', err.config.url)
+    }
 
     // Prevent infinite loops
     if(err.config.url === s.ACCESS_TOKEN_API) {
@@ -41,7 +48,6 @@ api.interceptors.response.use(res => {
 
     if(err.response.status === 401) {
         const {auth: {is_auth}} = store.getState()
-        con.log(is_auth)
 
         if(!is_auth) {
             // con.log('[Not authenticated, redirect to 401 error]')
@@ -49,7 +55,7 @@ api.interceptors.response.use(res => {
         }
 
         const new_access_token = await create_access_token()
-        con.log('[Access token]', new_access_token)
+        conutils.log('[Access token]', new_access_token)
 
         if(!new_access_token) {
             store.dispatch(logout())

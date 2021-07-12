@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { Route, Switch } from 'react-router-dom'
 
-import con from "./app/utils"
+import conutils from "./app/utils"
 import { public_routes, private_routes } from "./app/routes"
 import { set_access_token, reload_user_data, logout } from "./app/redux/slices"
 import { api_reload_user_data } from "./app/api/auth-account"
@@ -27,7 +27,8 @@ function App() {
             api_reload_user_data()
                 .then(res => {
                     dispatch(reload_user_data(res.data))
-                    con.log('[Data reloaded]')
+                    conutils.table(res.data)
+                    // con.log('[Data reloaded]')
                 })
                 .catch(err => {
                     dispatch(logout())

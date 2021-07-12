@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom"
 import s from "../../app/settings/settings"
 import logo from '../../assets/images/bootstrap-logo.svg'
 
-import con from "../../app/utils"
+import conutils from "../../app/utils"
 import api from "../../app/axios"
 import { TradeList } from "../../components/trades/Trades"
 
@@ -11,10 +11,10 @@ import { TradeList } from "../../components/trades/Trades"
 const doit = async () => {
     try {
         const res = await api.get('/demo/private')
-        con.table(res.data)
+        conutils.table(res.data)
     }
     catch({response}) {
-        con.log('[You need to be signed in to do this]')
+        conutils.log('[You need to be signed in to get user data]')
     }
 }
 

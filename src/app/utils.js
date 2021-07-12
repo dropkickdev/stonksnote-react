@@ -28,5 +28,5 @@ class Con {
     }
 }
 
-const con = new Con()
-export default con
+const conutils = new Con()
+export default conutils

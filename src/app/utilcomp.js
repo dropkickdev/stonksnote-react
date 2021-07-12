@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useSelector, useStore } from "react-redux"
 import { Redirect, Route } from 'react-router-dom'
 
-import con from "./utils"
+import conutils from "./utils"
 import s from "./settings/settings"
 
 
