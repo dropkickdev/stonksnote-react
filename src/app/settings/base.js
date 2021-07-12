@@ -7,6 +7,10 @@ let base_settings = {
     // Auth
     ACCESS_TOKEN_API: '/auth/token',
 
+    // Redirects
+    REDIRECT_PRIVATE_ONLY: '/auth/login',
+    REDIRECT_PUBLIC_ONLY: '/',
+
     NOTIFICATION: {
         REGISTER_OK_URL: '/n/registration-ok',
         ACTIVATION_SENT_OK_URL: '/n/activation-sent-ok',

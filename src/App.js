@@ -9,8 +9,10 @@ import { set_access_token, reload_user_data, logout } from "./app/redux/slices"
 import { api_reload_user_data } from "./app/api/auth-account"
 import HomePage from "./components/Home"
 import { FooPage } from "./components/authentication/Login"
-
-
+import { PrivateRoute, PublicRoute } from "./app/utilcomp"
+import { TradeList } from "./components/trades/Trades"
+import Login, { Logout } from "./components/authentication/Login"
+import Register from "./components/authentication/Register"
 
 
 function App() {
@@ -38,12 +40,14 @@ function App() {
             <div id={'app'} className={site.theme}>
 
                 <Switch>
-                    <>
-                        <Route path={'/'} component={HomePage} exact />
-                        <Route path={'/foo'} component={FooPage} exact />
-                        {private_routes.map((item, idx) => <Route key={idx} {...item} />)}
-                        {public_routes.map((item, idx) => <Route key={idx} {...item} />)}
-                    </>
+                    <Route path={'/'} component={HomePage} exact />
+                    <Route path={'/foo'} component={FooPage} />
+
+                    <PrivateRoute path={'/trades'} component={TradeList} exact />
+
+                    <PublicRoute path={'/auth/register'} component={Register} />
+                    <PublicRoute path={'/auth/login'} component={Login} />
+                    <PrivateRoute path={'/auth/logout'} component={Logout} />
                 </Switch>
 
             </div>

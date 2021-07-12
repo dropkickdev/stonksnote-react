@@ -14,7 +14,7 @@ const doit = async () => {
         con.table(res.data)
     }
     catch({response}) {
-        con.log('[Unable to get a nenw key]')
+        con.log('[You need to be signed in to do this]')
     }
 }
 
@@ -63,6 +63,7 @@ const GuestHeader = () => {
                         <button onClick={doit} className={'btn btn-primary w-100'}>Test private</button>
                     </li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'}>Private</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/logout'}>[Logout]</NavLink></li>
                     <li className={'nav-item navbar-text'}><DeviceSizes /></li>
                 </ul>
             </div>
@@ -100,8 +101,11 @@ const UserHeader = () => {
                     </li>
                     */}
                     <li className={'nav-item navbar-text display d-none d-lg-block'}><strong>Hi {display}!</strong></li>
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/logout'}>Logout</NavLink></li>
+                    <li className={'nav-item me-3 d-none d-lg-inline-block'}>
+                        <button onClick={doit} className={'btn btn-primary w-100'}>Test private</button>
+                    </li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'}>Private</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/logout'}>Logout</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/register'}>[Register]</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/login'}>[Login]</NavLink></li>
                     <li className={'nav-item navbar-text d-none d-lg-inline-block'}><DeviceSizes /></li>
