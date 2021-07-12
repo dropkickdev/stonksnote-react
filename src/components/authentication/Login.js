@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react"
-import { Redirect, useHistory } from 'react-router-dom'
+import { Redirect, useHistory, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux"
 import { Field, Form, Formik } from "formik"
 import * as yup from "yup"
+import GoogleLogin from "react-google-login"
 
 import conutils from "../../app/utils"
+import s from "../../app/settings/settings"
 import GuestTemplate from "../../templates/layouts/GuestTemplate"
 import { SimpleInputHTML } from "../../templates/partials/forms"
 import { login, logout, set_pageclass } from "../../app/redux/slices"
-import { api_login, api_logout } from "../../app/api/auth-account"
+import { api_login, api_logout, api_google_login } from "../../app/api/auth-account"
+
 
 
 
@@ -41,9 +44,9 @@ const Login = () => {
             form.set('password', password)
 
             try {
-                const {data: {display, access_token, is_verified}} = await api_login(form)
-                conutils.table({email, display, access_token, is_verified})
-                dispatch(login({email, display, access_token, is_verified}))
+                const {data: {display, access_token, is_verified, avatar}} = await api_login(form)
+                conutils.table({email, display, access_token, is_verified, avatar})
+                dispatch(login({email, display, access_token, is_verified, avatar}))
                 history.replace('/')
             }
             catch(err) {
@@ -53,6 +56,24 @@ const Login = () => {
             }
         }
     }
+
+    const googleResponse = response => {
+        // const id_token = response.tokenObj && response.tokenObj.id_token || null
+        if(response) {
+            const {tokenObj: {id_token}} = response
+            if(id_token) {
+                api_google_login(id_token).then(res => {
+                    const {display, email, access_token, is_verified, avatar} = res.data
+                    dispatch(login({display, email, access_token, is_verified, avatar}))
+                }).catch(err => {
+                    conutils.log(err.response)
+                })
+            }
+            else {
+                console.log('nothing')
+            }
+        }
+    };
 
     return (
         <GuestTemplate>
@@ -70,6 +91,20 @@ const Login = () => {
                                 <header>
                                     <h1>Login</h1>
                                 </header>
+
+                                <div className={'text-center'}>
+                                    <GoogleLogin
+                                        className={'btn-google w-100'}
+                                        clientId={s.GOOGLE_CLIENT_ID}
+                                        cookiePolicy={'single_host_origin'}
+                                        onSuccess={googleResponse}
+                                        onFailure={googleResponse}
+                                        // icon={false}
+                                    />
+                                </div>
+
+                                <div className={'text-center py-2'}>or</div>
+
                                 <Formik {...formik}>
                                     {({errors, touched}) => {
                                         return (
@@ -102,6 +137,10 @@ const Login = () => {
                                         )
                                     }}
                                 </Formik>
+
+                                <div className="text-center mt-3">
+                                    <p>No account? <Link to={'/auth/register'}>Register here.</Link> It's free!</p>
+                                </div>
                             </div>
                         </div>
                     </div>

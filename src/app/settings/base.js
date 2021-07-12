@@ -6,6 +6,7 @@ let base_settings = {
 
     // Auth
     ACCESS_TOKEN_API: '/auth/token',
+    GOOGLE_CLIENT_ID: '347443539141-letq5qq8u0u7e26bas93m36pcrpats2b.apps.googleusercontent.com',
 
     // Redirects
     REDIRECT_PRIVATE_ONLY: '/auth/login',

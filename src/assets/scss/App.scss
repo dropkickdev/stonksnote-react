@@ -30,6 +30,11 @@ html, body {background:$bg-gray;}
     }
 }
 
+button.btn-google {background:lighten($danger, 5%)!important; display:flex; justify-content:center;
+    > div {background:none!important;}
+    > span {color:#FFF; font-weight:bold; font-size:1.2rem;}
+}
+
 #content {
     &.left-sb {display:grid; height:100vh;
         @include media-breakpoint-up(md) {
@@ -88,6 +93,9 @@ html, body {background:$bg-gray;}
 }
 
 .dark-theme {background:$dark-theme-bg; color:$dark-theme-text;
+    a {color:#FFF;
+        &:hover {}
+    }
     h1 {color:#EEE;}
     ul.nav a.nav-link {color:$dark-theme-bg-links; border-radius:$border-radius $border-radius 0 0;
         &:hover {background-color:tint-color($dark-theme-bg, 30%);}

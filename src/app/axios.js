@@ -48,6 +48,7 @@ api.interceptors.response.use(res => {
 
     if(err.response.status === 401) {
         const {auth: {is_auth}} = store.getState()
+        // conutils.log(is_auth)
 
         if(!is_auth) {
             // con.log('[Not authenticated, redirect to 401 error]')
@@ -55,7 +56,7 @@ api.interceptors.response.use(res => {
         }
 
         const new_access_token = await create_access_token()
-        conutils.log('[Access token]', new_access_token)
+        // conutils.log('[Access token]', new_access_token)
 
         if(!new_access_token) {
             store.dispatch(logout())

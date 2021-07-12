@@ -73,9 +73,10 @@ const GuestHeader = () => {
 
 
 const UserHeader = () => {
-    const {auth: {display}} = useSelector(state => state)
+    const {auth: {display, avatar}} = useSelector(state => state)
     return (
         <div className="container">
+            <div><img src={avatar} /></div>
             <div className="d-flex justify-content-start">
                 <Link to="/" className={'navbar-brand'}><img src={logo} alt="" width="30" height="24" /></Link>
                 <DeviceSizes />

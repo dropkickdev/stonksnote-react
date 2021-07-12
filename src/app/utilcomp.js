@@ -24,3 +24,8 @@ export const PublicRoute = ({component: Component, ...rest}) => {
         }} />
     )
 };
+
+
+export const IF = ({condition, children}) => {
+    return condition ? <>{children}</> : null
+}
