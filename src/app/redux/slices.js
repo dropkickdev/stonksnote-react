@@ -56,6 +56,7 @@ export const site = createSlice({
         theme: 'dark-theme',
         pageclass: '',
         paginate: 10,
+        marks: [],  // List of active marks
     },
     reducers: {
         set_theme: (state, {payload}) => {
@@ -66,6 +67,7 @@ export const site = createSlice({
         }
     }
 })
+
 
 
 export const {login, logout, reload_user_data, set_access_token, set_display} = auth.actions

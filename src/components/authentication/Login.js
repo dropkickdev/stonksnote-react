@@ -96,7 +96,6 @@ const Login = () => {
                                         cookiePolicy={'single_host_origin'}
                                         onSuccess={googleResponse}
                                         onFailure={googleResponse}
-                                        // icon={false}
                                     />
                                 </div>
 

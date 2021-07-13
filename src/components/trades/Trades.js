@@ -118,3 +118,29 @@ export const TradeEntry = props => {
         </>
     )
 }
+
+
+export const MarkModal = () => {
+    return (
+        <div className="modal fade" id="markModalTrigger" tabIndex="-1"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+                <div className="modal-content">
+                    {/*
+                    <header className="modal-header">
+                        <h5 className="modal-title"
+                            id="exampleModalLabel">Modal title</h5>
+                    </header>
+                    */}
+                    <div className="modal-body">
+                        <p>Data here</p>
+                    </div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" className="btn btn-primary">Mark it</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+};

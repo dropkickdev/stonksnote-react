@@ -81,12 +81,13 @@ const UserHeader = () => {
                 <button onClick={doit} className={'btn btn-primary d-lg-none'}>Test private</button>
                 */}
                 <div className="btn-group" role="group" aria-label="Basic example">
-                    <a className={'btn btn-primary w-100 btn-add-mark'} href={'#'}>
+                    <Link className={'btn btn-primary btn-add-mark'} to={'/trades/add'}>
                         <span className="material-icons me-2">trending_up</span> trade
-                    </a>
-                    <a className={'btn btn-primary w-100 btn-add-mark'} href={'#'}>
+                    </Link>
+                    <button className={'btn btn-primary btn-add-mark'}
+                            data-bs-toggle="modal" data-bs-target="#markModalTrigger">
                         <span className="material-icons me-2">add_circle</span> mark
-                    </a>
+                    </button>
                 </div>
             </div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

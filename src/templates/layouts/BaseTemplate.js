@@ -1,17 +1,12 @@
-import { useEffect } from 'react'
+import { MarkModal } from "../../components/trades/Trades"
 
 
 
 const BaseTemplate = props => {
-    useEffect(() => {
-        // var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
-        //     keyboard: false
-        // })
-    }, [])
-
     return (
         <>
             {props.children}
+            <MarkModal />
         </>
     )
 }

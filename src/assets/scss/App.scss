@@ -37,13 +37,16 @@ html, body {background:$bg-gray;}
         a.nav-link:hover {background:none!important;}
     }
     @include media-breakpoint-up(lg) {
-        > nav {padding:0;}
+        > nav {padding:0;
+            .btn-group a:first-child {border-right:2px dashed #FFF!important;}
+            .btn-group *:visited, .btn-group *:link,
+            .btn-group *:focus, .btn-group *:active {/*border:none!important;*/ box-shadow:none!important; outline:none!important;}
+        }
         li.nav-item {padding:0;
             > a.nav-link, > strong, > span {padding:0 1rem; height:$navbar-height; display:flex; align-items:center;}
             &.dropdown > a.nav-link:hover {background:none;}
-            .btn-group a:first-child {border-right:2px dashed #FFF!important;}
         }
-        li.nav-btn {height:$navbar-height; display:flex!important; align-items:center;}
+        //li.nav-btn {height:$navbar-height; display:flex!important; align-items:center;}
     }
 }
 
