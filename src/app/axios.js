@@ -29,16 +29,15 @@ api.interceptors.request.use(req => {
 })
 
 api.interceptors.response.use(res => {
-    conutils.log('[URL]', res.config.url)
-    conutils.log('[Response interceptor SUCCESS]')
+    // console.log('[Response interceptor SUCCESS]')
     return res
 }, async err => {
     const {auth} = store.getState()
     if(!auth.is_auth) {
-        conutils.log('[You need to be signed in]')
+        console.log('[You need to be signed in]')
     }
     else {
-        conutils.warn(err.response.status, '[Response interceptor FAIL from]', err.config.url)
+        console.warn(err.response.status, '[Response interceptor FAIL from]', err.config.url)
     }
 
     // Prevent infinite loops
@@ -64,7 +63,7 @@ api.interceptors.response.use(res => {
         }
 
         // Update state with the new token
-        store.dispatch(set_access_token(new_access_token))
+        store.dispatch(set_access_token(new_access_token.access_token))
 
         // Retry the request with the updated access_token
         // con.log(err.response)

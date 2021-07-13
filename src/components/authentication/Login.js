@@ -45,7 +45,7 @@ const Login = () => {
 
             try {
                 const {data: {display, access_token, is_verified, avatar}} = await api_login(form)
-                conutils.table({email, display, access_token, is_verified, avatar})
+                // conutils.table({email, display, access_token, is_verified, avatar})
                 dispatch(login({email, display, access_token, is_verified, avatar}))
                 history.replace('/')
             }
@@ -68,9 +68,6 @@ const Login = () => {
                 }).catch(err => {
                     conutils.log(err.response)
                 })
-            }
-            else {
-                console.log('nothing')
             }
         }
     };

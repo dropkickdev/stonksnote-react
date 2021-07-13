@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
 import { NavLink, Link, useRouteMatch, useParams } from "react-router-dom"
+
 import Sidebar from "../../templates/partials/sidebars"
 import UserTemplate from "../../templates/layouts/UserTemplate"
 
@@ -8,8 +10,10 @@ import conutils from "../../app/utils"
 
 
 export const TradeList = () => {
-    const [state, setState] = useState({})
+    const [state, setState] = useState({currpage: 1})
     const {tab} = useParams()
+    const {site} = useSelector(state => state)
+    conutils.log(tab)
 
     useEffect(() => {
         // Get data here
@@ -23,20 +27,16 @@ export const TradeList = () => {
     let title = ''
     switch(tab) {
         case 'active':
-            title = <h1>Active Trades</h1>
+            title = <h1>Active</h1>
             break
         case 'gain':
-            title = <h1>Gained Trades</h1>
+            title = <h1>Gained</h1>
             break
         case 'loss':
-            title = <h1>Losing Trades</h1>
+            title = <h1>Losing</h1>
             break
         default:
-        title = <h1>All Trades</h1>
-    }
-    if(tab) {
-    }
-    else {
+            title = <h1>All Trades</h1>
     }
 
     return (
@@ -77,11 +77,6 @@ export const TradeList = () => {
                             </thead>
                             <tbody>
                                 <TradeEntry />
-                                <TradeEntry />
-                                <TradeEntry />
-                                <TradeEntry />
-                                <TradeEntry />
-                                <TradeEntry />
                             </tbody>
                         </table>
                     </ul>
@@ -117,30 +112,6 @@ export const TradeEntry = props => {
                     <button className="btn btn-primary btn-sm">Sell stock</button>
                 </td>
             </tr>
-            {/*
-            <li>
-                <div className={'name'}>ABC</div>
-                <div className={'buy'}>12.00 / 13.00</div>
-                <div className={'shares'}>12,000 shares</div>
-                <div className={'gainloss'}>1.500.00</div>
-                <div className={'notes'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque debitis facere labore minus praesentium quisquam vitae voluptatem! Accusantium alias atque dolor harum ipsam neque possimus quisquam sapiente voluptas voluptatem.</div>
-                <div className="date text-center">Mar 03, 2021</div>
-                <div className={'action text-center'}>
-                    <button className="btn btn-primary btn-sm">Sell stock</button>
-                </div>
-            </li>
-            <li>
-                <div className={'name'}>SHIFTY</div>
-                <div className={'buy'}>12.00 / 13.00</div>
-                <div className={'shares'}>12,000 shares</div>
-                <div className={'gainloss'}>1.500.00</div>
-                <div className={'notes'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque debitis facere labore minus praesentium quisquam vitae voluptatem! Accusantium alias atque dolor harum ipsam neque possimus quisquam sapiente voluptas voluptatem.</div>
-                <div className="date text-center">Mar 03, 2021</div>
-                <div className={'action text-center'}>
-                    <button className="btn btn-primary btn-sm">Sell stock</button>
-                </div>
-            </li>
-            */}
         </>
     )
 }

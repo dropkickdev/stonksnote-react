@@ -17,6 +17,7 @@ import Register from "./components/authentication/Register"
 
 function App() {
     const {auth, site} = useSelector(state => state)
+    // const site = useSelector(state => state.site)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -24,17 +25,22 @@ function App() {
         const access_token = localStorage.getItem('access_token')
         if(access_token) {
             dispatch(set_access_token(access_token))
+        }
+    }, [])
+    useEffect(() => {
+        if(auth.access_token && !auth.email) {
+            // console.log('[State access_token]', auth.access_token)
             api_reload_user_data()
                 .then(res => {
                     dispatch(reload_user_data(res.data))
-                    conutils.table(res.data)
-                    // con.log('[Data reloaded]')
+                    // console.log('[Data reloaded]')
                 })
                 .catch(err => {
                     dispatch(logout())
                 })
         }
-    }, [])
+        // console.table(auth)
+    }, [auth])
 
     return (
         <>
@@ -45,6 +51,7 @@ function App() {
                     <Route path={'/foo'} component={FooPage} />
 
                     <PrivateRoute path={'/trades'} component={TradeList} exact />
+                    <PrivateRoute path={'/trades/:tab'} component={TradeList} />
 
                     <PublicRoute path={'/auth/register'} component={Register} />
                     <PublicRoute path={'/auth/login'} component={Login} />

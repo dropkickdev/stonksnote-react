@@ -3,19 +3,16 @@ import { NavLink, Link } from "react-router-dom"
 import s from "../../app/settings/settings"
 import logo from '../../assets/images/bootstrap-logo.svg'
 
-import conutils from "../../app/utils"
 import api from "../../app/axios"
-import { TradeList } from "../../components/trades/Trades"
+import { IF } from "../../app/utilcomp"
 
 
 const doit = async () => {
     try {
         const res = await api.get('/demo/private')
-        conutils.table(res.data)
+        console.table(res.data)
     }
-    catch({response}) {
-        conutils.log('[You need to be signed in to get user data]')
-    }
+    catch({response}) {}
 }
 
 const DeviceSizes = () => {
@@ -114,11 +111,16 @@ const UserHeader = () => {
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/login'}>[Login]</NavLink></li>
                     */}
                     <li className="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle caret-off account-btn" href="#" id="navbarDropdown" role="button"
+                        <a className="nav-link dropdown-toggle caret-off account-btn" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src={avatar} width={34} height={34} />
+                            <IF condition={avatar}>
+                                <img src={avatar} width={34} height={34} />
+                            </IF>
+                            <IF condition={!avatar}>
+                                Account
+                            </IF>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><Link className={'nav-link'} to={'/account'}>Account</Link></li>
                             <li><Link className={'nav-link'} to={'/account/password'}>Password</Link></li>
                             {/*<li><hr className="dropdown-divider" /></li>*/}

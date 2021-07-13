@@ -30,16 +30,18 @@ export const auth  = createSlice({
             state.email = ''
             state.access_token = ''
             state.is_verified = false
+            state.avatar   = ''
             localStorage.clear()
         },
-        reload_user_data: (state, {payload: {display, email, is_verified}}) => {
+        reload_user_data: (state, {payload: {display, email, is_verified, avatar}}) => {
             state.is_auth = true
             state.display = display
             state.email   = email
             state.is_verified = is_verified
+            state.avatar   = avatar
         },
-        set_access_token: (state, {payload: {access_token}}) => {
-            state.access_token = access_token
+        set_access_token: (state, {payload}) => {
+            state.access_token = payload
         },
         set_display: (state, {payload}) => {
             state.display = payload
@@ -52,7 +54,8 @@ export const site = createSlice({
     initialState: {
         debug: true,
         theme: 'dark-theme',
-        pageclass: ''
+        pageclass: '',
+        paginate: 10,
     },
     reducers: {
         set_theme: (state, {payload}) => {
