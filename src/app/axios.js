@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useSelector, useDispatch } from "react-redux"
 
-import conutils from "./utils"
 import s from "./settings/settings"
 import { history } from "../index"
 import store from "./redux/store"
@@ -24,7 +23,7 @@ api.interceptors.request.use(req => {
     return req
 }, async err => {
     const {auth} = store.getState()
-    conutils.warn('[ERROR Request interceptor]', err)
+    console.warn('[ERROR Request interceptor]', err)
     return err
 })
 

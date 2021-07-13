@@ -13,6 +13,8 @@ import { PrivateRoute, PublicRoute } from "./app/utilcomp"
 import { TradeList } from "./components/trades/Trades"
 import Login, { Logout } from "./components/authentication/Login"
 import Register from "./components/authentication/Register"
+import { AccountPage, PasswordPage } from "./components/trades/Account"
+import { CollectionPage, MarkPage, MarkAddPage } from "./components/trades/Collection"
 
 
 function App() {
@@ -50,8 +52,14 @@ function App() {
                     <Route path={'/'} component={HomePage} exact />
                     <Route path={'/foo'} component={FooPage} />
 
+                    <PrivateRoute path={'/account'} component={AccountPage} exact />
+                    <PrivateRoute path={'/account/password'} component={PasswordPage} />
+
                     <PrivateRoute path={'/trades'} component={TradeList} exact />
                     <PrivateRoute path={'/trades/:tab'} component={TradeList} />
+                    <PrivateRoute path={'/collections'} component={CollectionPage} exact />
+                    <PrivateRoute path={'/marks'} component={MarkPage} exact />
+                    <PrivateRoute path={'/marks/add'} component={MarkAddPage} />
 
                     <PublicRoute path={'/auth/register'} component={Register} />
                     <PublicRoute path={'/auth/login'} component={Login} />

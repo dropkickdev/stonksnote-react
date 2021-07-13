@@ -20,13 +20,29 @@ Divider: cybermedium
 @import 'init';
 
 
+.btn {
+    &.btn-primary {color:#FFF;
+        &:hover {background:lighten($primary, 10%)!important; border-color:lighten($primary, 10%)!important;}
+    }
+}
+.btn-add-mark {display:flex; align-items:center; font-size:1.2rem; font-weight:bold;}
+
+
 html, body {background:$bg-gray;}
 
 #header {}
 #navbar {
-    li.display {margin-right:20px;}
+    > nav {padding:0;}
+    //li.display {margin-right:20px;}       // "Hi" text in header
     @include media-breakpoint-down(lg) {
         a.nav-link:hover {background:none!important;}
+    }
+    @include media-breakpoint-up(lg) {
+        li.nav-item {padding:0;
+            > a.nav-link, > strong, > span {padding:0 1rem; height:$navbar-height; display:flex; align-items:center;}
+            &.dropdown > a.nav-link:hover {background:none;}
+        }
+        li.nav-btn {height:$navbar-height; display:flex!important; align-items:center;}
     }
 }
 
@@ -34,6 +50,8 @@ button.btn-google {/*background:lighten($danger, 5%)!important;*/ justify-conten
     //> div {background:none!important;}
     > span {color:#333; font-weight:bold; font-size:1.2rem; font-family:$font-family;}
 }
+
+
 
 #content {
     &.left-sb {display:grid; height:100vh;
@@ -88,10 +106,7 @@ button.btn-google {/*background:lighten($danger, 5%)!important;*/ justify-conten
 //#footer {background:#777; color:#FFF; padding:10px 0;}
 
 
-.btn {
-    &.btn-primary {color:#FFF;}
-}
-.navbar-expand-lg .navbar-nav .nav-link.account-btn {padding:0;}
+
 
 .dark-theme {background:$dark-theme-bg; color:$dark-theme-text;
     a {color:#FFF;
@@ -106,7 +121,7 @@ button.btn-google {/*background:lighten($danger, 5%)!important;*/ justify-conten
     }
 
     #header {
-        nav {background:$dark-theme-dark; border-bottom:1px solid $dark-theme-light;
+        nav {background:$dark-theme-dark;
             a:not(.navbar-brand):hover {background:lighten($dark-theme-dark, 10%);}
         }
     }

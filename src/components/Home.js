@@ -4,6 +4,7 @@ import GuestTemplate from "../templates/layouts/GuestTemplate"
 import UserTemplate from "../templates/layouts/UserTemplate"
 import { TradeList } from "./trades/Trades"
 import BaseTemplate from "../templates/layouts/BaseTemplate"
+import Sidebar from "../templates/partials/sidebars"
 
 
 const HomeGuest = () => {
@@ -25,11 +26,13 @@ const HomeUser = () => {
     return (
         // <TradeList />
         <UserTemplate>
-            <div className="container">
-                <main>
+
+            <div id="home-content">
+                <header>
                     <h1>User home page</h1>
-                </main>
+                </header>
             </div>
+
         </UserTemplate>
     )
 }

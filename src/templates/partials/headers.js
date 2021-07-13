@@ -20,13 +20,13 @@ const DeviceSizes = () => {
     return (
         <>
             {site.debug && (
-                <div className="text-end ms-5" style={{fontWeight: 'bold'}}>
-                    <div className={'d-block d-sm-none'}>xs</div>
-                    <div className={'d-none d-sm-block d-md-none'}>sm</div>
-                    <div className={'d-none d-md-block d-lg-none'}>md</div>
-                    <div className={'d-none d-lg-block d-xl-none'}>lg</div>
-                    <div className={'d-none d-xl-block d-xxl-none'}>xl</div>
-                    <div className={'d-none d-xxl-block'}>xxl</div>
+                <div>
+                    <span className={'d-block d-sm-none'}>xs</span>
+                    <span className={'d-none d-sm-block d-md-none'}>sm</span>
+                    <span className={'d-none d-md-block d-lg-none'}>md</span>
+                    <span className={'d-none d-lg-block d-xl-none'}>lg</span>
+                    <span className={'d-none d-xl-block d-xxl-none'}>xl</span>
+                    <span className={'d-none d-xxl-block'}>xxl</span>
                 </div>
             )}
         </>
@@ -87,9 +87,14 @@ const UserHeader = () => {
             </button>
             <div className="navbar-collapse collapse justify-content-between" id="navbarNav">
                 <ul className="navbar-nav">
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'} exact>Home</NavLink></li>
+                    <li className={'nav-item d-none d-lg-inline-block nav-btn'}>
+                        <Link className={'btn btn-primary w-100 btn-add-mark'} to={'/marks/add'}>
+                            <span className="material-icons">add</span> mark
+                        </Link>
+                    </li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'} exact>Trades</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/collections'} exact>Collections</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/marks'} exact>Marks</NavLink></li>
                     {/*
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Open link foo</NavLink></li>
                     <li className={'nav-item navbar-text'}>Profile</li>
@@ -101,31 +106,36 @@ const UserHeader = () => {
                         <button onClick={doit} className={'btn btn-primary w-100'}>Test private</button>
                     </li>
                     */}
-                    <li className={'nav-item navbar-text display d-none d-lg-block'}><strong>Hi {display}!</strong></li>
+                    <li className={'nav-item navbar-text d-none d-lg-block'}><span>Hi&nbsp;<strong>{display}</strong>!</span></li>
+                    {/*
                     <li className={'nav-item me-3 d-none d-lg-inline-block'}>
                         <button onClick={doit} className={'btn btn-primary w-100'}>Test private</button>
                     </li>
-                    {/*
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'}>Private</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/register'}>[Register]</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/login'}>[Login]</NavLink></li>
                     */}
+
                     <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle caret-off account-btn" href="#" id="navbarDropdown" role="button"
+                        <Link className="nav-link dropdown-toggle caret-off account-btn" to="" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             <IF condition={avatar}>
                                 <img src={avatar} width={34} height={34} />
+                                <span className={'d-lg-none ms-3'}>Account</span>
                             </IF>
                             <IF condition={!avatar}>
+                                <span className="material-icons">manage_accounts</span>
                                 Account
                             </IF>
-                        </a>
+                        </Link>
                         <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><Link className={'nav-link'} to={'/account'}>Account</Link></li>
                             <li><Link className={'nav-link'} to={'/account/password'}>Password</Link></li>
-                            {/*<li><hr className="dropdown-divider" /></li>*/}
                             <li><Link className={'nav-link'} to={'/auth/logout'}>Logout</Link></li>
                         </ul>
+                    </li>
+                    <li className={'nav-item navbar-text'}>
+                        <span><DeviceSizes /></span>
                     </li>
                 </ul>
             </div>
