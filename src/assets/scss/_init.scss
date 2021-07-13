@@ -14,6 +14,14 @@ h2 {font-size:$font-size-base * 2.5; font-family:$header-family; font-weight:$he
 p {margin-bottom:10px;}
 
 
+// Remove the arrow in buttons for the navbar. Place alongside .dropdown-toggle
+.caret-off::before {
+    display: none;
+}
+.caret-off::after {
+    display: none!important;
+}
+
 /*
 ______
 |  ___|

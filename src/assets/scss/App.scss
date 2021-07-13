@@ -30,9 +30,9 @@ html, body {background:$bg-gray;}
     }
 }
 
-button.btn-google {background:lighten($danger, 5%)!important; display:flex; justify-content:center;
-    > div {background:none!important;}
-    > span {color:#FFF; font-weight:bold; font-size:1.2rem;}
+button.btn-google {/*background:lighten($danger, 5%)!important;*/ justify-content:center;
+    //> div {background:none!important;}
+    > span {color:#333; font-weight:bold; font-size:1.2rem; font-family:$font-family;}
 }
 
 #content {
@@ -91,6 +91,7 @@ button.btn-google {background:lighten($danger, 5%)!important; display:flex; just
 .btn {
     &.btn-primary {color:#FFF;}
 }
+.navbar-expand-lg .navbar-nav .nav-link.account-btn {padding:0;}
 
 .dark-theme {background:$dark-theme-bg; color:$dark-theme-text;
     a {color:#FFF;
@@ -99,6 +100,9 @@ button.btn-google {background:lighten($danger, 5%)!important; display:flex; just
     h1 {color:#EEE;}
     ul.nav a.nav-link {color:$dark-theme-bg-links; border-radius:$border-radius $border-radius 0 0;
         &:hover {background-color:tint-color($dark-theme-bg, 30%);}
+    }
+    ul.dropdown-menu {background:lighten($dark-theme-bg, 20%);
+        a.nav-link {color:#FFF;}
     }
 
     #header {

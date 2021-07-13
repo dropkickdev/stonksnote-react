@@ -76,10 +76,9 @@ const UserHeader = () => {
     const {auth: {display, avatar}} = useSelector(state => state)
     return (
         <div className="container">
-            <div><img src={avatar} /></div>
             <div className="d-flex justify-content-start">
                 <Link to="/" className={'navbar-brand'}><img src={logo} alt="" width="30" height="24" /></Link>
-                <DeviceSizes />
+                {/*<DeviceSizes />*/}
                 {/*
                 <NavLink className={'navbar-brand'} to={`${s.LOGOUT_URL}`}>Logout</NavLink>
                 <button onClick={doit} className={'btn btn-primary d-lg-none'}>Test private</button>
@@ -92,8 +91,12 @@ const UserHeader = () => {
             <div className="navbar-collapse collapse justify-content-between" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/'} exact>Home</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'} exact>Trades</NavLink></li>
+                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/collections'} exact>Collections</NavLink></li>
+                    {/*
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Open link foo</NavLink></li>
-                    {/*<li className={'nav-item navbar-text'}>Profile</li>*/}
+                    <li className={'nav-item navbar-text'}>Profile</li>
+                    */}
                 </ul>
                 <ul className={'navbar-nav'}>
                     {/*
@@ -105,11 +108,23 @@ const UserHeader = () => {
                     <li className={'nav-item me-3 d-none d-lg-inline-block'}>
                         <button onClick={doit} className={'btn btn-primary w-100'}>Test private</button>
                     </li>
+                    {/*
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'}>Private</NavLink></li>
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/logout'}>Logout</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/register'}>[Register]</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/auth/login'}>[Login]</NavLink></li>
-                    <li className={'nav-item navbar-text d-none d-lg-inline-block'}><DeviceSizes /></li>
+                    */}
+                    <li className="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle caret-off account-btn" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src={avatar} width={34} height={34} />
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><Link className={'nav-link'} to={'/account'}>Account</Link></li>
+                            <li><Link className={'nav-link'} to={'/account/password'}>Password</Link></li>
+                            {/*<li><hr className="dropdown-divider" /></li>*/}
+                            <li><Link className={'nav-link'} to={'/auth/logout'}>Logout</Link></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
