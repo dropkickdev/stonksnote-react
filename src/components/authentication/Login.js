@@ -59,7 +59,7 @@ const Login = () => {
 
     const googleResponse = response => {
         // const id_token = response.tokenObj && response.tokenObj.id_token || null
-        if(response) {
+        if(response.tokenObj) {
             const {tokenObj: {id_token}} = response
             if(id_token) {
                 api_google_login(id_token).then(res => {

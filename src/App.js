@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import conutils from "./app/utils"
 import { public_routes, private_routes } from "./app/routes"
+import 'bootstrap/dist/js/bootstrap.bundle'
 import { set_access_token, reload_user_data, logout } from "./app/redux/slices"
 import { api_reload_user_data } from "./app/api/auth-account"
 import HomePage from "./components/Home"

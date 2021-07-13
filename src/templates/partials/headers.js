@@ -80,6 +80,14 @@ const UserHeader = () => {
                 <NavLink className={'navbar-brand'} to={`${s.LOGOUT_URL}`}>Logout</NavLink>
                 <button onClick={doit} className={'btn btn-primary d-lg-none'}>Test private</button>
                 */}
+                <div className="btn-group" role="group" aria-label="Basic example">
+                    <a className={'btn btn-primary w-100 btn-add-mark'} href={'#'}>
+                        <span className="material-icons me-2">trending_up</span> trade
+                    </a>
+                    <a className={'btn btn-primary w-100 btn-add-mark'} href={'#'}>
+                        <span className="material-icons me-2">add_circle</span> mark
+                    </a>
+                </div>
             </div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,18 +95,9 @@ const UserHeader = () => {
             </button>
             <div className="navbar-collapse collapse justify-content-between" id="navbarNav">
                 <ul className="navbar-nav">
-                    <li className={'nav-item d-none d-lg-inline-block nav-btn'}>
-                        <Link className={'btn btn-primary w-100 btn-add-mark'} to={'/marks/add'}>
-                            <span className="material-icons">add</span> mark
-                        </Link>
-                    </li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'} exact>Trades</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/collections'} exact>Collections</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/marks'} exact>Marks</NavLink></li>
-                    {/*
-                    <li className={'nav-item'}><NavLink className={'nav-link'} to={'/foo'}>Open link foo</NavLink></li>
-                    <li className={'nav-item navbar-text'}>Profile</li>
-                    */}
                 </ul>
                 <ul className={'navbar-nav'}>
                     {/*
