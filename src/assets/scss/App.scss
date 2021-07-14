@@ -32,8 +32,7 @@ html, body {background:$bg-gray;}
 
 #header {}
 #navbar {
-    //li.display {margin-right:20px;}       // "Hi" text in header
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(md) {
         a.nav-link:hover {background:none!important;}
     }
     @include media-breakpoint-up(lg) {
@@ -46,7 +45,6 @@ html, body {background:$bg-gray;}
             > a.nav-link, > strong, > span {padding:0 1rem; height:$navbar-height; display:flex; align-items:center;}
             &.dropdown > a.nav-link:hover {background:none;}
         }
-        //li.nav-btn {height:$navbar-height; display:flex!important; align-items:center;}
     }
 }
 

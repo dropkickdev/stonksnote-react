@@ -10,6 +10,7 @@ export const auth  = createSlice({
         display: '',
         email  : '',
         access_token: '',
+        token_expires: '',
         is_verified: false,
         avatar: '',
     },
