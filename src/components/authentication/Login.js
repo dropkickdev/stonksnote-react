@@ -74,7 +74,7 @@ const Login = () => {
 
     return (
         <GuestTemplate>
-            <main>
+            <div id={'login-content'}>
 
                 <div className="row">
                     <div className="col-sm-9 col-md-7 col-lg-5 col-xxl-5 mx-auto">
@@ -142,7 +142,7 @@ const Login = () => {
                     </div>
                 </div>
 
-            </main>
+            </div>
         </GuestTemplate>
     )
 }

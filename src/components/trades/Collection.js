@@ -45,7 +45,7 @@ export const MarkPage = () => {
 export const MarkAddPage = () => {
     return (
         <UserTemplate>
-            <div id="marks-content">
+            <div id="marksadd-content">
 
 <header className={'post-header'}>
     <h1>Add Mark</h1>

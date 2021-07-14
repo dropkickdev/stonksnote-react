@@ -26,13 +26,9 @@ const HomeUser = () => {
     return (
         // <TradeList />
         <UserTemplate>
-
-            <div id="home-content">
-                <header>
-                    <h1>User home page</h1>
-                </header>
-            </div>
-
+            <header>
+                <h1>User home page</h1>
+            </header>
         </UserTemplate>
     )
 }

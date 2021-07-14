@@ -149,7 +149,7 @@ const Header = () => {
     return (
         <header id="header" className={site.theme}>
             <div id="navbar">
-                <nav className="navbar navbar-expand-lg navbar-dark">
+                <nav className="navbar navbar-expand-lg navbar-dark navbar-expand-md">
                     {auth.is_auth && <UserHeader /> || <GuestHeader />}
                 </nav>
             </div>

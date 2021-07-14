@@ -20,8 +20,8 @@ import { CollectionPage, MarkPage, MarkAddPage } from "./components/trades/Colle
 
 function App() {
     const {auth, site} = useSelector(state => state)
-    // const site = useSelector(state => state.site)
     const dispatch = useDispatch()
+    const layout_type = auth.is_auth && 'starter-layout' || 'guest-layout'
 
     useEffect(() => {
         // Load access_token when if exists upon loading
@@ -47,7 +47,7 @@ function App() {
 
     return (
         <>
-            <div id={'app'} className={site.theme}>
+            <div id={'app'} className={`${layout_type} ${site.theme}`}>
 
                 <Switch>
                     <Route path={'/'} component={HomePage} exact />

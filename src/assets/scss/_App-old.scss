@@ -1,0 +1,164 @@
+/*!
+---------------------------------------------------------------
+______                 _    _      _   ______
+|  _  \               | |  (_)    | |  |  _  \
+| | | |_ __ ___  _ __ | | ___  ___| | _| | | |_____   __
+| | | | '__/ _ \| '_ \| |/ / |/ __| |/ / | | / _ \ \ / /
+| |/ /| | | (_) | |_) |   <| | (__|   <| |/ /  __/\ V /
+|___/ |_|  \___/| .__/|_|\_\_|\___|_|\_\___/ \___| \_/
+                | |
+                |_|
+
+enchance 2021
+Ascii: doom
+Divider: cybermedium
+---------------------------------------------------------------
+*/
+@import "../bootstrap/scss/functions";
+@import 'vars'; // Mine
+@import 'bootstrap_imports';
+@import 'init';
+
+
+// Vars
+$dark-theme-btn-hover: lighten($primary, 10%)!important;
+
+
+// Button
+.btn {
+    &.btn-primary {color:#FFF; border-color:$dark-theme-btn-hover;
+        &:hover {background:$dark-theme-btn-hover;}
+    }
+}
+.btn-add-mark {display:flex; align-items:center; font-size:1.2rem; font-weight:bold;}
+button.btn-google {/*background:lighten($danger, 5%)!important;*/ justify-content:center;
+    //> div {background:none!important;}
+    > span {color:#333; font-weight:bold; font-size:1.2rem; font-family:$font-family;}
+}
+
+
+// Main
+html, body {background:$bg-gray;}
+
+/*
+* _  _ ____ ____ ___  ____ ____
+* |__| |___ |__| |  \ |___ |__/
+* |  | |___ |  | |__/ |___ |  \
+*
+*/
+#header {}
+#navbar {
+    @include media-breakpoint-down(md) {
+        a.nav-link:hover {background:none!important;}
+    }
+    @include media-breakpoint-up(lg) {
+        > nav {padding:0;
+            .btn-group a:first-child {border-right:2px dashed #FFF!important;}
+            .btn-group *:visited, .btn-group *:link,
+            .btn-group *:focus, .btn-group *:active {/*border:none!important;*/ box-shadow:none!important; outline:none!important;}
+        }
+        li.nav-item {padding:0;
+            > a.nav-link, > strong, > span {padding:0 1rem; height:$navbar-height; display:flex; align-items:center;}
+            &.dropdown > a.nav-link:hover {background:none;}
+        }
+    }
+}
+
+
+/*
+* ____ ____ _  _ ___ ____ _  _ ___
+* |    |  | |\ |  |  |___ |\ |  |
+* |___ |__| | \|  |  |___ | \|  |
+*
+*/
+
+#content {
+    &.left-sb {display:grid; height:100vh;
+        @include media-breakpoint-up(md) {
+            grid-template-columns:160px 1fr;
+        }
+        @include media-breakpoint-up(lg) {
+            grid-template-columns:200px 1fr;
+        }
+        aside.sidebar {}
+        main {background:tint-color($dark-theme-bg, 10%);
+            .listing {
+                table {color:#333;}
+                thead {color:#FFF; font-weight:bold;}
+                tbody {background:#b1b1b1;
+                    tr {
+                        &:hover {background:tint-color(#b1b1b1, 15%);}
+                        td {border-bottom:1px solid $dark-theme-bg; border-right:1px solid #777; padding:0;
+                            height:40px; line-height:40px; white-space:nowrap;
+                            &.name {font-weight:bold; width:100%}
+                            &.buysell, &.shares, &.date, &.action {white-space:nowrap;}
+                            &:first-child {padding-left:20px;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#footer {padding:20px 0;}
+
+
+
+.dark-theme {background:$dark-theme-bg; color:$dark-theme-text;
+    a {color:#FFF;
+        &:hover {}
+    }
+    h1 {color:#EEE;}
+    ul.nav a.nav-link {color:$dark-theme-bg-links; border-radius:$border-radius $border-radius 0 0;
+        &:hover {background-color:tint-color($dark-theme-bg, 30%);}
+    }
+    ul.dropdown-menu {background:lighten($dark-theme-bg, 20%);
+        a.nav-link {color:#FFF;}
+    }
+
+    #header {
+        nav {background:$dark-theme-dark;
+            a:not(.navbar-brand):hover {background:lighten($dark-theme-dark, 10%);}
+            a:hover:not(.btn) {background:$dark-theme-btn-hover; color:#FFF;}
+        }
+    }
+    #content {}
+    #footer {background:$dark-theme-dark; border-top:1px solid $dark-theme-light;}
+    .card {background:$dark-theme-light;}
+
+
+    /*
+    * ____ ____ ____ _  _
+    * |___ |  | |__/ |\/|
+    * |    |__| |  \ |  |
+    */
+    .form-control:focus:not(.is-valid):not(.is-invalid) {border-color:$dark-theme-focus; outline:2px solid $dark-theme-focus;}
+    .field-error {color:lighten($danger, 30%);}
+
+    .was-validated .form-control:valid, .form-control.is-valid,
+    .was-validated .form-control:valid:focus, .form-control.is-valid:focus,
+    .was-validated .form-select:valid, .form-select.is-valid,
+    .was-validated .form-select:valid:focus, .form-select.is-valid:focus,
+    .was-validated .form-check-input:valid, .form-check-input.is-valid {
+        background-color:$dark-theme-valid; border-color:$dark-theme-valid-stroke;
+        outline:2px solid $dark-theme-valid-stroke;
+    }
+    .was-validated .form-check-input:valid:checked, .form-check-input.is-valid:checked {
+        background-color:$dark-theme-valid;
+    }
+
+    .was-validated .form-control:invalid, .form-control.is-invalid,
+    .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus,
+    .was-validated .form-select:invalid, .form-select.is-invalid,
+    .was-validated .form-select:invalid:focus, .form-select.is-invalid:focus,
+    .was-validated .form-check-input:invalid, .form-check-input.is-invalid {
+        background-color:$dark-theme-invalid; border-color:$dark-theme-invalid-stroke;
+        outline:2px solid $dark-theme-invalid-stroke;
+    }
+    .was-validated .form-check-input:invalid:checked, .form-check-input.is-invalid:checked {
+        background-color:$dark-theme-invalid;
+    }
+}
+
+.light-theme {}

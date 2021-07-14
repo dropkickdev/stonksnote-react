@@ -54,7 +54,7 @@ export const site = createSlice({
     name: 'site',
     initialState: {
         debug: true,
-        theme: 'dark-theme',
+        theme: 'light-theme',
         pageclass: '',
         paginate: 10,
         marks: [],  // List of active marks

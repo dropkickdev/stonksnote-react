@@ -2,42 +2,33 @@ import { useSelector } from "react-redux"
 
 
 
-const GuestFooter = ({theme}) => {
+const GuestFooter = () => {
     const {site} = useSelector(state => state)
     return (
-        <>
-            <footer id="footer" className={`${theme} container-fluid`}>
-                <div className={'container'}>
-                    <div className="row">
-                        <div className="col">
-                            This is the guest footer
-                        </div>
-                    </div>
-                </div>
-
-
-            </footer>
-        </>
+        <footer id="footer" className={site.theme}>
+            <div className={'container'}>
+                This is the Guest footer
+            </div>
+        </footer>
     )
 }
 
 
-const UserFooter = ({theme}) => {
+const UserFooter = () => {
+    const {site} = useSelector(state => state)
     return (
-        <>
-            <footer id="footer" className={`${theme} container-fluid`}>
-                <div className={'container'}>
-                    This is the user footer
-                </div>
-            </footer>
-        </>
+        <footer id="footer" className={site.theme}>
+            <div className={'container'}>
+                This is the User footer
+            </div>
+        </footer>
     )
 }
 
 
 const Footer = () => {
     const {auth, site} = useSelector(state => state)
-    return auth.is_auth && <UserFooter theme={site.theme} /> || <GuestFooter theme={site.theme} />
+    return auth.is_auth && <UserFooter /> || <GuestFooter />
 }
 
 export default Footer

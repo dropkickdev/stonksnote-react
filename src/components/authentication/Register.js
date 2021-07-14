@@ -61,8 +61,7 @@ const Register = props => {
 
     return (
         <GuestTemplate>
-            <main>
-
+            <div id="register-content">
                 <div className="row">
                     <div className="col-sm-9 col-md-7 col-lg-5 col-xxl-5 mx-auto">
                         <div className="card">
@@ -73,7 +72,7 @@ const Register = props => {
                                 <Formik {...formik}>
                                     {({errors, touched}) => {
                                         return (
-<Form>
+    <Form>
     <div className={'mb-3'}>
         <Field name={'email'}>
             { ({field, meta}) => (
@@ -99,7 +98,7 @@ const Register = props => {
         <button type={'submit'} className={'btn btn-primary btn-lg w-100'}>Submit</button>
     </div>
 
-</Form>
+    </Form>
                                         )
                                     }}
                                 </Formik>
@@ -107,8 +106,7 @@ const Register = props => {
                         </div>
                     </div>
                 </div>
-
-            </main>
+            </div>
         </GuestTemplate>
     )
 }

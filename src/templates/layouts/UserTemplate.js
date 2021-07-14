@@ -7,18 +7,18 @@ import Sidebar from "../partials/sidebars"
 
 
 
-const UserTemplate = props => {
-    const {site} = useSelector(state => state)
+const UserTemplate = ({children}) => {
+    const {auth} = useSelector(state => state)
     return (
         <BaseTemplate>
-            <Header />
-            <div id={'content'} className={`${site.theme} container-fluid g-0 left-sb`}>
-                <Sidebar />
-                <main id={'main'} className={'px-3 px-md-5 pt-5'}>
-                    {props.children}
-                </main>
+            <div id="tops">Tops</div>
+            <Sidebar />
+            <div id="content">
+                <header id="header">Header</header>
+                <main>{children}</main>
+                <footer id="footer">Footer</footer>
             </div>
-            <Footer />
+            <div id="bottoms">Bottoms</div>
         </BaseTemplate>
     )
 }
