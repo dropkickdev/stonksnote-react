@@ -28,7 +28,8 @@ const SidebarAdmin = () => {
                 Account
             </Link>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><Link className={'nav-link'} to={'/account'}>Edit Account</Link></li>
+                <li><Link className={'nav-link'} to={'/account'}>Update Account</Link></li>
+                <li><Link className={'nav-link'} to={'/account/update'}>Update Profile</Link></li>
                 <li><Link className={'nav-link'} to={'/account/password'}>Change password</Link></li>
                 <li><Link className={'nav-link'} to={'/account/avatar'}>Change photo</Link></li>
             </ul>
@@ -65,6 +66,9 @@ const SidebarAdmin = () => {
         <ul className="nav flex-column w-100">
             <li className={'nav-item'}>
                 <NavLink className={'nav-link'} to={'/profile'} exact>Profile</NavLink>
+            </li>
+            <li className={'nav-item'}>
+                <NavLink className={'nav-link'} to={'/export'} exact>Export</NavLink>
             </li>
             <li className={'nav-item'}>
                 <NavLink className={'nav-link'} to={'/auth/logout'} exact>Logout</NavLink>

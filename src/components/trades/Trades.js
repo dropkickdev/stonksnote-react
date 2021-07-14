@@ -21,18 +21,23 @@ export const TradeList = () => {
     // }
 
     let title = ''
+    let table_title = ''
     switch(tab) {
         case 'active':
             title = <h1>Trades: <span className={'nobold'}>Active</span></h1>
+            table_title = 'Currently bought stocks'
             break
         case 'gain':
             title = <h1>Trades: <span className={'nobold'}>Won</span></h1>
+            table_title = 'Stocks you earned from'
             break
         case 'loss':
             title = <h1>Trades: <span className={'nobold'}>Lost</span></h1>
+            table_title = 'Stocks you lost from'
             break
         default:
             title = <h1>Trades</h1>
+            table_title = 'All trades'
     }
 
     return (
@@ -61,27 +66,43 @@ export const TradeList = () => {
                         </li>
                     </ul>
                 </div>
-                <nav>
-                    <div className="listing">
-                        <ul className={'nolist'}>
-                            <table className="table table-borderless">
-                                <thead>
-                                <tr>
-                                    <th>&nbsp;</th>
-                                    <th>Buy/Sell</th>
-                                    <th>Shares</th>
-                                    <th>Gain/Loss</th>
-                                    <th>Bought</th>
-                                    <th>&nbsp;</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <TradeEntry />
-                                </tbody>
-                            </table>
-                        </ul>
-                    </div>
-                </nav>
+
+                <div className="listing">
+                    <header className={'mt-5'}>
+                        <h2>{table_title}</h2>
+                    </header>
+                    <table className="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope={'col'}><Link to={''}>Ticket</Link></th>
+                                <th scope={'col'}><Link to={''}>Shares</Link></th>
+                                <th scope={'col'}><Link to={''}>Buy</Link></th>
+                                <th scope={'col'}><Link to={''}>Sell</Link></th>
+                                <th scope={'col'}><Link to={''}>Min sell</Link></th>
+                                <th scope={'col'}><Link to={''}>Gain/Loss</Link></th>
+                                <th scope={'col'}><Link to={''}>Total</Link></th>
+                                <th scope={'col'}><Link to={''}>Bought</Link></th>
+                                <th scope={'col'}><Link to={''}>Sold</Link></th>
+                                <th scope={'col'}>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                            <TradeEntry />
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <footer id="footer">Footer</footer>
         </UserTemplate>
@@ -93,25 +114,18 @@ export const TradeEntry = props => {
     return (
         <>
             <tr>
-                <td className={'stock'}>ABC</td>
-                <td className={'buysell'}>12.00 / 13.00</td>
-                <td className={'shares'}>12,000 shares</td>
-                <td className={'gainloss'}>1,500.00</td>
-                {/*<td className={'notes'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium corporis culpa cupiditate ex fugit labore laboriosam libero, perspiciatis quae quaerat quibusdam saepe sint unde vel. Consequuntur cupiditate nisi quae.</td>*/}
-                <td className={'date'}>Mar 03, 2021</td>
-                <td className={'action'}>
-                    <button className="btn btn-primary btn-sm">Sell stock</button>
-                </td>
-            </tr>
-            <tr>
-                <td className={'stock'}>SHIFTY</td>
-                <td className={'buysell'}>12.00 / 134543.00</td>
-                <td className={'shares'}>15345432,000 shares</td>
-                <td className={'gainloss'}>1,523,543,500.00</td>
-                {/*<td className={'notes'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium corporis culpa cupiditate ex fugit labore laboriosam libero, perspiciatis quae quaerat quibusdam saepe sint unde vel. Consequuntur cupiditate nisi quae.</td>*/}
-                <td className={'date'}>Mar 03, 2021</td>
-                <td className={'action'}>
-                    <button className="btn btn-primary btn-sm">Sell stock</button>
+                <th scope={'row'} className={'symbol'}>ABC</th>
+                <td className={'shares'}>12,000</td>
+                <td className={'buy focus-buy text-bold fitwidth clr-buy-darker'}>12.00</td>
+                <td className={'sell focus-sell text-bold fitwidth clr-sell-darker'}>13.00</td>
+                <td className={'minsell text-bold'}>&gt; 12.6</td>
+                <td className={'gainloss'}><span className={'clr-light'}>Php</span> 1,500.00</td>
+                <td className={'total'}><span className={'clr-light'}>Php</span> 99,234.00</td>
+                <td className={'bought'}>2021-03-06</td>
+                <td className={'sold'}>2021-03-06</td>
+                <td className={'action d-flex'}>
+                    <button className="btn btn-outline-secondary btn-sm">More</button>
+                    <button className="btn btn-primary btn-sm ms-2"><span className="material-icons clr-white me-2">done</span>Sold</button>
                 </td>
             </tr>
         </>
