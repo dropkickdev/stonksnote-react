@@ -11,16 +11,16 @@ const SidebarAdmin = () => {
             <aside id={'sidebar'}>
 <div className={'top'}>
     <div className="user">
-        <div className="pic me-3">
-            <IF condition={avatar}>
-                <img src={avatar} className={'rounded-circle shadow-2'} />
+        <div className="pic">
+            <IF condition={!avatar}>
+                <img src={avatar} className={'rounded-circle me-3'} />
                 {/*<span className={'d-lg-none ms-3'}>Account</span>*/}
             </IF>
-            <IF condition={!avatar}>
-                <span className="material-icons me-3 no-pic">face</span>
+            <IF condition={avatar}>
+                <span className="material-icons no-pic me-2">account_circle</span>
             </IF>
         </div>
-        <div className={'dropdown data'}>
+        <div className={`dropdown data ${avatar && '' || 'nudge-down'}`}>
             <h4>{display}</h4>
             <Link className="dropdown-toggle" to="" id="navbarDropdown" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">

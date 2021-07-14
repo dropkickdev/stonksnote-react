@@ -73,9 +73,10 @@ button.btn-google {background:#fafafa!important; justify-content:center;
         .user {display:flex; margin:0 1rem;
             .pic {
                 img {height:$header-height - 40px;}
-                span.no-pic {font-size:$header-height - 10px; color:$sidebar-bg;}
+                span.no-pic {font-size:90px; color:darken($sidebar-bg, 5%);}
             }
             .data {
+                &.nudge-down {position:relative; top:5px;}
                 > h4 {color:#FFF; margin:0; font-weight:bold; font-size:1.4rem;}
                 > a {color:#FFF; text-decoration:none;}
             }
