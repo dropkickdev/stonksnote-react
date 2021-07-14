@@ -20,16 +20,32 @@ Divider: cybermedium
 @import 'init';
 
 
+// Vars
+$dark-theme-btn-hover: lighten($primary, 10%)!important;
+
+
+// Button
 .btn {
-    &.btn-primary {color:#FFF; border-color:lighten($primary, 10%)!important;
-        &:hover {background:lighten($primary, 10%)!important;}
+    &.btn-primary {color:#FFF; border-color:$dark-theme-btn-hover;
+        &:hover {background:$dark-theme-btn-hover;}
     }
 }
 .btn-add-mark {display:flex; align-items:center; font-size:1.2rem; font-weight:bold;}
+button.btn-google {/*background:lighten($danger, 5%)!important;*/ justify-content:center;
+    //> div {background:none!important;}
+    > span {color:#333; font-weight:bold; font-size:1.2rem; font-family:$font-family;}
+}
 
 
+// Main
 html, body {background:$bg-gray;}
 
+/*
+* _  _ ____ ____ ___  ____ ____
+* |__| |___ |__| |  \ |___ |__/
+* |  | |___ |  | |__/ |___ |  \
+*
+*/
 #header {}
 #navbar {
     @include media-breakpoint-down(md) {
@@ -48,12 +64,13 @@ html, body {background:$bg-gray;}
     }
 }
 
-button.btn-google {/*background:lighten($danger, 5%)!important;*/ justify-content:center;
-    //> div {background:none!important;}
-    > span {color:#333; font-weight:bold; font-size:1.2rem; font-family:$font-family;}
-}
 
-
+/*
+* ____ ____ _  _ ___ ____ _  _ ___
+* |    |  | |\ |  |  |___ |\ |  |
+* |___ |__| | \|  |  |___ | \|  |
+*
+*/
 
 #content {
     &.left-sb {display:grid; height:100vh;
@@ -76,37 +93,15 @@ button.btn-google {/*background:lighten($danger, 5%)!important;*/ justify-conten
                             &.name {font-weight:bold; width:100%}
                             &.buysell, &.shares, &.date, &.action {white-space:nowrap;}
                             &:first-child {padding-left:20px;}
-                            //&.notes {width:1fr;}
-                            //&.notes {position:relative; width:200px; overflow:hidden; text-overflow:ellipsis;  white-space:nowrap;}
-                            //&.action {width:auto;}
                         }
                     }
                 }
-                //tr {display:grid; grid-template-columns:90px auto auto auto 1fr auto auto; grid-template-rows:40px;
-                //    td {
-                //
-                //        &:last-child {border-right:none;}
-                //    }
-                //}
-                /*
-                li {display:grid; grid-template-columns:90px auto auto auto 1fr 120px 130px; grid-template-rows:40px; line-height:40px;
-                    background:#b1b1b1; color:#333; margin-bottom:1px;
-                    div {
-
-
-                    }
-                }
-                */
             }
         }
     }
 }
 
 #footer {padding:20px 0;}
-
-
-//#footer {background:#777; color:#FFF; padding:10px 0;}
-
 
 
 
@@ -125,11 +120,13 @@ button.btn-google {/*background:lighten($danger, 5%)!important;*/ justify-conten
     #header {
         nav {background:$dark-theme-dark;
             a:not(.navbar-brand):hover {background:lighten($dark-theme-dark, 10%);}
+            a:hover:not(.btn) {background:$dark-theme-btn-hover; color:#FFF;}
         }
     }
     #content {}
     #footer {background:$dark-theme-dark; border-top:1px solid $dark-theme-light;}
     .card {background:$dark-theme-light;}
+
 
     /*
     * ____ ____ ____ _  _

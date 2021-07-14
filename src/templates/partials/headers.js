@@ -95,7 +95,7 @@ const UserHeader = () => {
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="navbar-collapse collapse justify-content-between" id="navbarNav">
-                <ul className="navbar-nav">
+                <ul className="navbar-nav ms-3">
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/trades'} exact>Trades</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/collections'} exact>Collections</NavLink></li>
                     <li className={'nav-item'}><NavLink className={'nav-link'} to={'/marks'} exact>Marks</NavLink></li>

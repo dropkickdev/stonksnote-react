@@ -122,9 +122,9 @@ export const TradeEntry = props => {
 
 export const MarkModal = () => {
     return (
-        <div className="modal fade" id="markModalTrigger" tabIndex="-1"
+        <div className="modal" id="markModalTrigger" tabIndex="-1"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     {/*
                     <header className="modal-header">
