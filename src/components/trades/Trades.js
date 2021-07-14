@@ -2,18 +2,14 @@ import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { NavLink, Link, useRouteMatch, useParams } from "react-router-dom"
 
-import Sidebar from "../../templates/partials/sidebars"
 import UserTemplate from "../../templates/layouts/UserTemplate"
-
-import conutils from "../../app/utils"
-
+import { HeaderActions } from "../../templates/partials/partials"
 
 
 export const TradeList = () => {
     const [state, setState] = useState({currpage: 1})
     const {tab} = useParams()
     const {site} = useSelector(state => state)
-    conutils.log(tab)
 
     useEffect(() => {
         // Get data here
@@ -27,26 +23,30 @@ export const TradeList = () => {
     let title = ''
     switch(tab) {
         case 'active':
-            title = <h1>Active</h1>
+            title = <h1>Trades: <span className={'nobold'}>Active</span></h1>
             break
         case 'gain':
-            title = <h1>Gained</h1>
+            title = <h1>Trades: <span className={'nobold'}>Won</span></h1>
             break
         case 'loss':
-            title = <h1>Losing</h1>
+            title = <h1>Trades: <span className={'nobold'}>Lost</span></h1>
             break
         default:
-            title = <h1>All Trades</h1>
+            title = <h1>Trades</h1>
     }
 
     return (
         <UserTemplate page={'trades-page'}>
             <header id="header">
-                <h1>Trades</h1>
+                <div className="text">
+                    <h1>{title}</h1>
+                    <p>This is a subhead</p>
+                </div>
+                <HeaderActions type={ 'trade_mark' } />
             </header>
             <div id={'content'}>
-                <nav>
-                    <ul className="nav nav-pills bg-links">
+                <div className="page-options">
+                    <ul className="nav nav-pills nav-fill">
                         <li className="nav-item">
                             <NavLink to={`/trades`} className="nav-link" aria-current="page" exact>All Trades</NavLink>
                         </li>
@@ -54,12 +54,14 @@ export const TradeList = () => {
                             <NavLink to={`/trades/active`} className="nav-link" aria-current="page">Active</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to={`/trades/gain`} className="nav-link" aria-current="page">Gain</NavLink>
+                            <NavLink to={`/trades/gain`} className="nav-link" aria-current="page">Won</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to={`/trades/loss`} className="nav-link" aria-current="page">Loss</NavLink>
+                            <NavLink to={`/trades/loss`} className="nav-link" aria-current="page">Lost</NavLink>
                         </li>
                     </ul>
+                </div>
+                <nav>
                     <div className="listing">
                         <ul className={'nolist'}>
                             <table className="table table-borderless">

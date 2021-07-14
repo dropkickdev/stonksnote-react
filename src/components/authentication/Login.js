@@ -74,29 +74,23 @@ const Login = () => {
 
     return (
         <GuestTemplate>
-            <div id={'login-content'}>
-
+            <div id="login-content">
                 <div className="row">
                     <div className="col-sm-9 col-md-7 col-lg-5 col-xxl-5 mx-auto">
-
-                        {state.formerror && (
-                            <div className="alert alert-danger">Something seems wrong. Did you type your password correctly?</div>
-                        )}
 
                         <div className="card">
                             <div className="card-body">
                                 <header>
                                     <h1>Login</h1>
                                 </header>
-
                                 <div className={'text-center'}>
-                                    <GoogleLogin
-                                        className={'btn-google w-100'}
-                                        clientId={s.GOOGLE_CLIENT_ID}
-                                        cookiePolicy={'single_host_origin'}
-                                        onSuccess={googleResponse}
-                                        onFailure={googleResponse}
-                                    />
+                                <GoogleLogin
+                                    className={'btn-google w-100'}
+                                    clientId={s.GOOGLE_CLIENT_ID}
+                                    cookiePolicy={'single_host_origin'}
+                                    onSuccess={googleResponse}
+                                    onFailure={googleResponse}
+                                />
                                 </div>
 
                                 <div className={'text-center py-2'}>or</div>
@@ -133,15 +127,14 @@ const Login = () => {
                                         )
                                     }}
                                 </Formik>
-
                                 <div className="text-center mt-3">
-                                    <p>No account? <Link to={'/auth/register'}>Register here.</Link> It's free!</p>
+                                    <p>No account? <Link to={'/auth/register'}>Register here</Link>.</p>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
-
             </div>
         </GuestTemplate>
     )

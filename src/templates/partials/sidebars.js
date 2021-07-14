@@ -6,30 +6,31 @@ import logo from "../../assets/images/bootstrap-logo.svg"
 
 const SidebarAdmin = () => {
     const {auth: {avatar, display}} = useSelector(state => state)
+    const nudge = avatar ? '' : 'nudge'
     return (
         <>
             <aside id={'sidebar'}>
-<div className={'top'}>
+<div className={`top ${nudge}`}>
     <div className="user">
         <div className="pic">
-            <IF condition={!avatar}>
+            <IF condition={avatar}>
                 <img src={avatar} className={'rounded-circle me-3'} />
                 {/*<span className={'d-lg-none ms-3'}>Account</span>*/}
             </IF>
-            <IF condition={avatar}>
+            <IF condition={!avatar}>
                 <span className="material-icons no-pic me-2">account_circle</span>
             </IF>
         </div>
-        <div className={`dropdown data ${avatar && '' || 'nudge-down'}`}>
+        <div className={'dropdown data'}>
             <h4>{display}</h4>
             <Link className="dropdown-toggle" to="" id="navbarDropdown" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
                 Account
             </Link>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><Link className={'nav-link'} to={'/account'}>Account</Link></li>
-                <li><Link className={'nav-link'} to={'/account/password'}>Password</Link></li>
-                <li><Link className={'nav-link'} to={'/auth/logout'}>Logout</Link></li>
+                <li><Link className={'nav-link'} to={'/account'}>Edit Account</Link></li>
+                <li><Link className={'nav-link'} to={'/account/password'}>Change password</Link></li>
+                <li><Link className={'nav-link'} to={'/account/avatar'}>Change photo</Link></li>
             </ul>
         </div>
     </div>

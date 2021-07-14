@@ -1,11 +1,11 @@
 
 ul.nolist {padding:0; list-style:none;}
-.clr-white {color:#FFF;}
+.nobold {font-weight:normal;}
 
 html, body {height:100%; font-size:$font-size-base; color:$font-color; font-family:$font-family;}
 body {overflow-y:scroll;}
 
-h1 {font-size:$font-size-base * 3.5; font-family:$header-family; font-weight:$header-weight;}
+h1 {font-size:$font-size-base * 3.2; font-family:$header-family; font-weight:$header-weight;}
 h2 {font-size:$font-size-base * 2.5; font-family:$header-family; font-weight:$header-light;}
 //h3 {font-size:$font-size-base * 1.75;}
 //h4 {font-size:$font-size-base * 1.5;}
