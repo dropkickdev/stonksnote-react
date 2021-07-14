@@ -7,17 +7,14 @@ import { TradeEntry } from "./Trades"
 
 export const AccountPage = () => {
     return (
-        <UserTemplate>
-            <div id="account-content">
-
-<header className={'post-header'}>
-    <h1>Account</h1>
-</header>
-<div className={'post-content'}>
-    <p>Data here</p>
-</div>
-
+        <UserTemplate page={'account-page'}>
+            <header id="header">
+                <h1>Account</h1>
+            </header>
+            <div id={'content'}>
+                <p>Data here</p>
             </div>
+            <footer id="footer">Footer</footer>
         </UserTemplate>
     )
 };
@@ -26,17 +23,14 @@ export const AccountPage = () => {
 
 export const PasswordPage = () => {
     return (
-        <UserTemplate>
-            <div id="password-content">
-
-<header className={'post-header'}>
-    <h1>Password</h1>
-</header>
-<div className={'post-content'}>
-    <p>Data here</p>
-</div>
-
+        <UserTemplate page={'password-page'}>
+            <header id="header">
+                <h1>Password</h1>
+            </header>
+            <div id={'content'}>
+                <p>Data here</p>
             </div>
+            <footer id="footer">Footer</footer>
         </UserTemplate>
     )
 };

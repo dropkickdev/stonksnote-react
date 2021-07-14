@@ -40,51 +40,48 @@ export const TradeList = () => {
     }
 
     return (
-        <UserTemplate>
-            <div id={'trades-content'}>
-
-<header className={'post-header'}>
-    {title}
-</header>
-<div className={'post-content'}>
-    <nav>
-        <ul className="nav nav-pills bg-links">
-            <li className="nav-item">
-                <NavLink to={`/trades`} className="nav-link" aria-current="page" exact>All Trades</NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink to={`/trades/active`} className="nav-link" aria-current="page">Active</NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink to={`/trades/gain`} className="nav-link" aria-current="page">Gain</NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink to={`/trades/loss`} className="nav-link" aria-current="page">Loss</NavLink>
-            </li>
-        </ul>
-    </nav>
-    <div className="listing">
-        <ul className={'nolist'}>
-            <table className="table table-borderless">
-                <thead>
-                    <tr>
-                        <th>&nbsp;</th>
-                        <th>Buy/Sell</th>
-                        <th>Shares</th>
-                        <th>Gain/Loss</th>
-                        <th>Bought</th>
-                        <th>&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <TradeEntry />
-                </tbody>
-            </table>
-        </ul>
-    </div>
-</div>
-
+        <UserTemplate page={'trades-page'}>
+            <header id="header">
+                <h1>Trades</h1>
+            </header>
+            <div id={'content'}>
+                <nav>
+                    <ul className="nav nav-pills bg-links">
+                        <li className="nav-item">
+                            <NavLink to={`/trades`} className="nav-link" aria-current="page" exact>All Trades</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to={`/trades/active`} className="nav-link" aria-current="page">Active</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to={`/trades/gain`} className="nav-link" aria-current="page">Gain</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to={`/trades/loss`} className="nav-link" aria-current="page">Loss</NavLink>
+                        </li>
+                    </ul>
+                    <div className="listing">
+                        <ul className={'nolist'}>
+                            <table className="table table-borderless">
+                                <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>Buy/Sell</th>
+                                    <th>Shares</th>
+                                    <th>Gain/Loss</th>
+                                    <th>Bought</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <TradeEntry />
+                                </tbody>
+                            </table>
+                        </ul>
+                    </div>
+                </nav>
             </div>
+            <footer id="footer">Footer</footer>
         </UserTemplate>
     )
 }

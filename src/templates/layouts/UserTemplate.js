@@ -7,17 +7,16 @@ import Sidebar from "../partials/sidebars"
 
 
 
-const UserTemplate = ({children}) => {
+const UserTemplate = ({children, page}) => {
     const {auth} = useSelector(state => state)
+    page = page || ''
     return (
         <BaseTemplate>
             <div id="tops">Tops</div>
             <Sidebar />
-            <div id="content">
-                <header id="header">Header</header>
-                <main>{children}</main>
-                <footer id="footer">Footer</footer>
-            </div>
+            <main id={'mids'} className={page}>
+                {children}
+            </main>
             <div id="bottoms">Bottoms</div>
         </BaseTemplate>
     )

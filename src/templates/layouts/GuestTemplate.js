@@ -7,12 +7,13 @@ import Sidebar from "../partials/sidebars"
 
 
 
-const GuestTemplate = ({children}) => {
+const GuestTemplate = ({children, page}) => {
+    page = page || ''
     return (
         <BaseTemplate>
             <Header />
-            <main>
-                <div className={'container my-5'}>
+            <main id={'content'} className={page}>
+                <div className="container py-5">
                     {children}
                 </div>
             </main>

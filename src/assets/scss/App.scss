@@ -30,7 +30,7 @@ Divider: cybermedium
 ul.dropdown-menu {
     a:hover {background:lighten($primary, 40%);}
 }
-button.btn-google {background:#fafafa!important; justify-content:center;
+button.btn-google {background:#f8f8f8!important; justify-content:center;
     > div {background:none!important;}
     > span {color:#333; font-weight:bold; font-size:1.2rem; font-family:$font-family;}
 }
@@ -48,15 +48,15 @@ button.btn-google {background:#fafafa!important; justify-content:center;
                       grid-column-gap: 0; grid-row-gap: 0;
         #tops { grid-area: 1 / 1 / 2 / 3; background:$tops-bg;}
         #sidebar { grid-area: 2 / 1 / 3 / 2; min-height:100vh;}
-        #content { grid-area: 2 / 2 / 3 / 3; min-height:100vh;
-                   display: grid; grid-template-columns: 1fr; grid-template-rows: $header-height 1fr $footer-height;
-                   grid-column-gap: 0; grid-row-gap: 0;}
+        #mids { grid-area: 2 / 2 / 3 / 3; min-height:100vh;
+                display: grid; grid-template-columns: 1fr; grid-template-rows: $header-height 1fr $footer-height;
+                grid-column-gap: 0; grid-row-gap: 0;}
         #bottoms { grid-area: 3 / 1 / 4 / 3; background:$bottoms-bg;}
     }
     &.guest-layout {grid-template-columns: 1fr; grid-template-rows: auto 1fr auto;
                     grid-column-gap: 0; grid-row-gap: 0;
         #header {background:$random-dark1;}
-        main {min-height:100vh; background:$main-bg;}
+        #content {min-height:100vh; background:$main-bg;}
         #footer {background:$random-dark1;}
     }
 }
@@ -114,12 +114,12 @@ button.btn-google {background:#fafafa!important; justify-content:center;
 
 
 /*
-* _  _ ____ _ _  _
-* |\/| |__| | |\ |
-* |  | |  | | | \|
+* ____ ____ _  _ ___ ____ _  _ ___
+* |    |  | |\ |  |  |___ |\ |  |
+* |___ |__| | \|  |  |___ | \|  |
 */
 #app.starter-layout {
-    main {background:$main-bg;}
+    #content {background:$main-bg;}
 }
 
 
