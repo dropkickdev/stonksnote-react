@@ -73,30 +73,30 @@ const Register = props => {
                                     {({errors, touched}) => {
                                         return (
     <Form>
-    <div className={'mb-3'}>
-        <Field name={'email'}>
-            { ({field, meta}) => (
-                <input name={ field.name } type="text" { ...field } autoFocus
-                       placeholder={ 'Email' }
-                       className={ `form-control form-control-lg ${ meta.touched && meta.error && 'is-invalid' }` } />
-            ) }
-        </Field>
-        <div className={'field-error'}>
-            {(touched.email) && (errors.email) && (
-                <div className="error">{errors.email}</div>
-            )}
+        <div className={'mb-3'}>
+            <Field name={'email'}>
+                { ({field, meta}) => (
+                    <input name={ field.name } type="text" { ...field } autoFocus
+                           placeholder={ 'Email' }
+                           className={ `form-control form-control-lg ${ meta.touched && meta.error && 'is-invalid' }` } />
+                ) }
+            </Field>
+            <div className={'field-error'}>
+                {(touched.email) && (errors.email) && (
+                    <div className="error">{errors.email}</div>
+                )}
+            </div>
         </div>
-    </div>
-    <div className={'mb-3'}>
-        <SimpleInputHTML name={'password'} type={'password'} placeholder={'Password'} touched={touched} errors={errors} />
-    </div>
-    <div className={'mb-3'}>
-        <SimpleInputHTML name={'repeat'} type={'password'} placeholder={'Repeat'} touched={touched} errors={errors} />
-    </div>
+        <div className={'mb-3'}>
+            <SimpleInputHTML name={'password'} type={'password'} placeholder={'Password'} touched={touched} errors={errors} />
+        </div>
+        <div className={'mb-3'}>
+            <SimpleInputHTML name={'repeat'} type={'password'} placeholder={'Repeat'} touched={touched} errors={errors} />
+        </div>
 
-    <div className="submit">
-        <button type={'submit'} className={'btn btn-primary btn-lg w-100'}>Submit</button>
-    </div>
+        <div className="submit">
+            <button type={'submit'} className={'btn btn-primary btn-lg w-100'}>Submit</button>
+        </div>
 
     </Form>
                                         )

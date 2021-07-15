@@ -35,7 +35,7 @@ ul.dropdown-menu {
         &:hover {background:$hover-bg;}
     }
 }
-.btn {display:flex; align-items:center;
+.btn {display:flex; /*align-items:center;*/ justify-content:center;
     &.btn-sm {
         .material-icons {position:relative; top:0;}
     }

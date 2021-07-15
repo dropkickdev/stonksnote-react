@@ -44,9 +44,9 @@ const Login = () => {
             form.set('password', password)
 
             try {
-                const {data: {display, access_token, is_verified, avatar}} = await api_login(form)
+                const {data: {display, access_token, is_verified, avatar, timezone}} = await api_login(form)
                 // conutils.table({email, display, access_token, is_verified, avatar})
-                dispatch(login({email, display, access_token, is_verified, avatar}))
+                dispatch(login({email, display, access_token, is_verified, avatar, timezone}))
                 history.replace('/')
             }
             catch(err) {
@@ -83,50 +83,51 @@ const Login = () => {
                                 <header>
                                     <h1>Login</h1>
                                 </header>
-                                <div className={'text-center'}>
-                                <GoogleLogin
-                                    className={'btn-google w-100'}
-                                    clientId={s.GOOGLE_CLIENT_ID}
-                                    cookiePolicy={'single_host_origin'}
-                                    onSuccess={googleResponse}
-                                    onFailure={googleResponse}
-                                />
-                                </div>
+<div className={'text-center'}>
+    <GoogleLogin
+        className={'btn-google w-100'}
+        clientId={s.GOOGLE_CLIENT_ID}
+        cookiePolicy={'single_host_origin'}
+        onSuccess={googleResponse}
+        onFailure={googleResponse}
+    />
+</div>
 
-                                <div className={'text-center py-2'}>or</div>
+<div className={'text-center py-2'}>or</div>
 
-                                <Formik {...formik}>
-                                    {({errors, touched}) => {
-                                        return (
-                                            <Form>
-                                                <div className={'mb-3'}>
-                                                    <Field name={'email'}>
-                                                        { ({field, meta}) => (
-                                                            <input name={ field.name } type="text" { ...field } autoFocus
-                                                                   placeholder={ 'Email' }
-                                                                   className={ `form-control form-control-lg ${ meta.touched && meta.error && 'is-invalid' }` } />
-                                                        ) }
-                                                    </Field>
-                                                    <div className={'field-error'}>
-                                                        {(touched.email) && (errors.email) && (
-                                                            <div className="error">{errors.email}</div>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                                <div className={'mb-3'}>
-                                                    <SimpleInputHTML name={'password'} type={'password'} placeholder={'Password'} touched={touched} errors={errors} />
-                                                </div>
+<Formik {...formik}>
+    {({errors, touched}) => {
+        return (
+            <Form>
+                <div className={'mb-3'}>
+                    <Field name={'email'}>
+                        { ({field, meta}) => (
+                            <input name={ field.name } type="text" { ...field } autoFocus
+                                   placeholder={ 'Email' }
+                                   className={ `form-control form-control-lg ${ meta.touched && meta.error && 'is-invalid' }` } />
+                        ) }
+                    </Field>
+                    <div className={'field-error'}>
+                        {(touched.email) && (errors.email) && (
+                            <div className="error">{errors.email}</div>
+                        )}
+                    </div>
+                </div>
+                <div className={'mb-3'}>
+                    <SimpleInputHTML name={'password'} type={'password'} placeholder={'Password'} touched={touched} errors={errors} />
+                </div>
 
-                                                <div className="submit">
-                                                    <button type={'submit'} className={'btn btn-primary btn-lg w-100'}>
-                                                        Sign-in
-                                                    </button>
-                                                </div>
+                <div className="submit">
+                    <button type={'submit'} className={'btn btn-primary btn-lg w-100' +
+                    ' justify-content-center'}>
+                        Sign-in
+                    </button>
+                </div>
 
-                                            </Form>
-                                        )
-                                    }}
-                                </Formik>
+            </Form>
+        )
+    }}
+</Formik>
                                 <div className="text-center mt-3">
                                     <p>No account? <Link to={'/auth/register'}>Register here</Link>.</p>
                                 </div>

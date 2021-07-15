@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { NavLink, Link, useRouteMatch, useParams } from "react-router-dom"
+import { Field, Form, Formik } from "formik"
+import * as yup from 'yup'
 
 import { ScrollToStart } from "../../app/utilcomp"
 import UserTemplate from "../../templates/layouts/UserTemplate"
 import { HeaderActions } from "../../templates/partials/partials"
+import { api_mark_create } from "./api_trades"
+import { SimpleInputHTML } from "../../templates/partials/forms"
 
 
 export const TradeList = () => {
@@ -81,7 +85,6 @@ export const TradeList = () => {
     )
 }
 
-
 export const TradeTable = () => {
     const data = [
         {symbol: 'ABC', shares: '12,000', buy: '12.00', sell: '13.00', minsell: '12.6',
@@ -131,7 +134,6 @@ export const TradeTable = () => {
     )
 };
 
-
 export const TradeEntry = props => {
     const {symbol, shares, buy, sell, minsell, gainloss, currency, total,
           bought, sold, id} = props
@@ -158,23 +160,53 @@ export const TradeEntry = props => {
 
 
 export const MarkModal = () => {
+    const init = {
+        symbol: '',
+        expires: ''
+    }
+
+    const schema = yup.object({
+        symbol: yup.string().max(10).required(),
+        expires: yup.string()
+    })
+
+    const formik = {
+        initialValues: init,
+        validationSchema: schema,
+        onSubmit: async (values, actions) => {
+            try {
+                const {status, data} = await api_mark_create(values)
+                console.log(status, data)
+            }
+            catch(err) {
+                console.log(err)
+            }
+        }
+    }
+
     return (
         <div className="modal" id="markModalTrigger" tabIndex="-1"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
-                    {/*
-                    <header className="modal-header">
-                        <h5 className="modal-title"
-                            id="exampleModalLabel">Modal title</h5>
-                    </header>
-                    */}
                     <div className="modal-body">
-                        <p>Data here</p>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" className="btn btn-primary">Mark it</button>
+
+                        <Formik {...formik}>
+                            {({errors, touched}) => {
+                                return (
+<Form>
+    <h3>Add Mark</h3>
+    <div className="mb-3">
+        <SimpleInputHTML name={'symbol'} placeholder={'Symbol name'} touched={touched} errors={errors} />
+    </div>
+    <div className="submit">
+        <button type={'submit'} className={'btn btn-primary btn-lg w-100'}>Submit</button>
+    </div>
+</Form>
+                                )
+                            }}
+                        </Formik>
+
                     </div>
                 </div>
             </div>

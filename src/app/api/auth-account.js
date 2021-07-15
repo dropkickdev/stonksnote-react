@@ -1,5 +1,4 @@
 import api from "../axios"
-import conutils from "../utils"
 
 export const api_register = data => api.post('/auth/register', data)
 export const api_login = data => api.post('/auth/login', data)
