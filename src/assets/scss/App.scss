@@ -48,7 +48,10 @@ table.table {
     thead {
         th, a {color:#555;}
         th {border:none;
-            a:hover {color:$primary;}
+            a:hover {color:$primary;
+                .material-icons {color:$primary;}
+            }
+            .material-icons {color:#555; font-size:.9rem;}
         }
     }
     tbody {
@@ -58,6 +61,7 @@ table.table {
         th, td {color:#5a5a5a;}
         th.focus, td.focus {background:#e6dbb9;}
         .material-icons {position:relative; top:4px;}
+        td small {font-size:.8rem;}
     }
     th:first-child {padding-left:$grid-gutter-width * 4;}
     td:last-child {padding-right:$grid-gutter-width * 4;}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { NavLink, Link, useRouteMatch, useParams } from "react-router-dom"
 
+import { ScrollToStart } from "../../app/utilcomp"
 import UserTemplate from "../../templates/layouts/UserTemplate"
 import { HeaderActions } from "../../templates/partials/partials"
 
@@ -42,9 +43,10 @@ export const TradeList = () => {
 
     return (
         <UserTemplate page={'trades-page'}>
+            <ScrollToStart />
             <header id="header">
                 <div className="text">
-                    <h1>{title}</h1>
+                    {title}
                     <p>This is a subhead</p>
                 </div>
                 <HeaderActions type={ 'trade_mark' } />
@@ -71,37 +73,7 @@ export const TradeList = () => {
                     <header className={'mt-5'}>
                         <h2>{table_title}</h2>
                     </header>
-                    <table className="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th scope={'col'}><Link to={''}>Ticket</Link></th>
-                                <th scope={'col'}><Link to={''}>Shares</Link></th>
-                                <th scope={'col'}><Link to={''}>Buy</Link></th>
-                                <th scope={'col'}><Link to={''}>Sell</Link></th>
-                                <th scope={'col'}><Link to={''}>Min sell</Link></th>
-                                <th scope={'col'}><Link to={''}>Gain/Loss</Link></th>
-                                <th scope={'col'}><Link to={''}>Total</Link></th>
-                                <th scope={'col'}><Link to={''}>Bought</Link></th>
-                                <th scope={'col'}><Link to={''}>Sold</Link></th>
-                                <th scope={'col'}>&nbsp;</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                            <TradeEntry />
-                        </tbody>
-                    </table>
+                    <TradeTable />
                 </div>
             </div>
             <footer id="footer">Footer</footer>
@@ -110,21 +82,73 @@ export const TradeList = () => {
 }
 
 
+export const TradeTable = () => {
+    const data = [
+        {symbol: 'ABC', shares: '12,000', buy: '12.00', sell: '13.00', minsell: '12.6',
+            gainloss: '1,500', currency: 'PHP', total: '99,432.00', bought: '2021-03-06',
+            sold: '2021-03-06', id: 1},
+        {symbol: 'ABC', shares: '12,000', buy: '12.00', sell: '13.00', minsell: '12.6',
+            gainloss: '1,500', currency: 'PHP', total: '99,432.00', bought: '2021-03-06',
+            sold: '2021-03-06', id: 2},
+        {symbol: 'ABC', shares: '12,000', buy: '12.00', sell: '13.00', minsell: '12.6',
+            gainloss: '1,500', currency: 'PHP', total: '99,432.00', bought: '2021-03-06',
+            sold: '2021-03-06', id: 3},
+        {symbol: 'ABC', shares: '12,000', buy: '12.00', sell: '13.00', minsell: '12.6',
+            gainloss: '1,500', currency: 'PHP', total: '99,432.00', bought: '2021-03-06',
+            sold: '2021-03-06', id: 4},
+        {symbol: 'ABC', shares: '12,000', buy: '12.00', sell: '13.00', minsell: '12.6',
+            gainloss: '1,500', currency: 'PHP', total: '99,432.00', bought: '2021-03-06',
+            sold: '2021-03-06', id: 5},
+        {symbol: 'ABC', shares: '12,000', buy: '12.00', sell: '13.00', minsell: '12.6',
+            gainloss: '1,500', currency: 'PHP', total: '99,432.00', bought: '2021-03-06',
+            sold: '2021-03-06', id: 6},
+        {symbol: 'ABC', shares: '12,000', buy: '12.00', sell: '13.00', minsell: '12.6',
+            gainloss: '1,500', currency: 'PHP', total: '99,432.00', bought: '2021-03-06',
+            sold: '2021-03-06', id: 7},
+    ]
+    return (
+        <table className="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th scope={'col'}><Link to={''}>Ticket</Link></th>
+                <th scope={'col'}><Link to={''}>Shares</Link></th>
+                <th scope={'col'}><Link to={''}>Buy</Link></th>
+                <th scope={'col'}><Link to={''}>Sell</Link></th>
+                <th scope={'col'}><Link to={''}>Min sell</Link></th>
+                <th scope={'col'}><Link to={''}>Gain/Loss</Link></th>
+                <th scope={'col'}><Link to={''}>Total</Link></th>
+                <th scope={'col'}><Link to={''}>Bought<span className="material-icons">arrow_downward</span></Link></th>
+                <th scope={'col'}><Link to={''}>Sold</Link></th>
+                <th scope={'col'}>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+                {data.map(items => (
+                    <TradeEntry key={items.id} {...items} />
+                ))}
+            </tbody>
+        </table>
+    )
+};
+
+
 export const TradeEntry = props => {
+    const {symbol, shares, buy, sell, minsell, gainloss, currency, total,
+          bought, sold, id} = props
     return (
         <>
             <tr>
-                <th scope={'row'} className={'symbol'}>ABC</th>
-                <td className={'shares'}>12,000</td>
-                <td className={'buy focus-buy text-bold fitwidth clr-buy-darker'}>12.00</td>
-                <td className={'sell focus-sell text-bold fitwidth clr-sell-darker'}>13.00</td>
-                <td className={'minsell text-bold'}>&gt; 12.6</td>
-                <td className={'gainloss'}><span className={'clr-light'}>Php</span> 1,500.00</td>
-                <td className={'total'}><span className={'clr-light'}>Php</span> 99,234.00</td>
-                <td className={'bought'}>2021-03-06</td>
-                <td className={'sold'}>2021-03-06</td>
+                <th scope={'row'} className={'symbol'}>{symbol}</th>
+                <td className={'shares'}>{shares}</td>
+                <td className={'buy focus-buy text-bold fitwidth clr-buy-darker'}>{buy}</td>
+                <td className={'sell focus-sell text-bold fitwidth clr-sell-darker'}>{sell}</td>
+                <td className={'minsell text-bold'}>&gt; {minsell}</td>
+                <td className={'gainloss'}>{gainloss} <small className={'clr-light'}>{currency}</small></td>
+                <td className={'total'}>{total} <small className={'clr-light'}>{currency}</small></td>
+                <td className={'bought'}>{bought}</td>
+                <td className={'sold'}>{sold}</td>
                 <td className={'action d-flex'}>
-                    <button className="btn btn-outline-secondary btn-sm">More</button>
+                    <button className="btn btn-outline-secondary btn-sm">Edit</button>
                     <button className="btn btn-primary btn-sm ms-2"><span className="material-icons clr-white me-2">done</span>Sold</button>
                 </td>
             </tr>

@@ -1,10 +1,13 @@
 import UserTemplate from "../../templates/layouts/UserTemplate"
 import { Link } from "react-router-dom"
 
+import { ScrollToStart } from "../../app/utilcomp"
+
 
 export const CollectionPage = () => {
     return (
         <UserTemplate page={'collections-page'}>
+            <ScrollToStart />
             <header id="header">
                 <h1>Collections</h1>
             </header>
@@ -20,6 +23,7 @@ export const CollectionPage = () => {
 export const MarkPage = () => {
     return (
         <UserTemplate page={'marks-page'}>
+            <ScrollToStart />
             <header id="header">
                 <h1>Marks</h1>
             </header>
@@ -35,6 +39,7 @@ export const MarkPage = () => {
 export const MarkAddPage = () => {
     return (
         <UserTemplate page={'marksadd-page'}>
+            <ScrollToStart />
             <header id="header">
                 <h1>Add Marks</h1>
             </header>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useStore } from "react-redux"
-import { Redirect, Route } from 'react-router-dom'
+import { Redirect, Route, useLocation } from 'react-router-dom'
 
 import conutils from "./utils"
 import s from "./settings/settings"
@@ -29,3 +29,28 @@ export const PublicRoute = ({component: Component, ...rest}) => {
 export const IF = ({condition, children}) => {
     return condition ? <>{children}</> : null
 }
+
+
+export const ScrollToTop = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+}
+
+
+export const ScrollToTopOnMount = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    return null;
+}
+
+
+export const ScrollToStart = () => (
+    <ScrollToTop />
+)

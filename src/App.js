@@ -14,7 +14,7 @@ import { PrivateRoute, PublicRoute } from "./app/utilcomp"
 import { TradeList } from "./components/trades/Trades"
 import Login, { Logout } from "./components/authentication/Login"
 import Register from "./components/authentication/Register"
-import { AccountPage, PasswordPage } from "./components/trades/Account"
+import { AccountPage, SecurityPage, ProfilePage } from "./components/trades/Account"
 import { CollectionPage, MarkPage, MarkAddPage } from "./components/trades/Collection"
 
 
@@ -54,7 +54,8 @@ function App() {
                     <Route path={'/foo'} component={FooPage} />
 
                     <PrivateRoute path={'/account'} component={AccountPage} exact />
-                    <PrivateRoute path={'/account/password'} component={PasswordPage} />
+                    <PrivateRoute path={'/account/profile'} component={ProfilePage} />
+                    <PrivateRoute path={'/account/security'} component={SecurityPage} />
 
                     <PrivateRoute path={'/trades'} component={TradeList} exact />
                     <PrivateRoute path={'/trades/:tab'} component={TradeList} />
