@@ -10,6 +10,8 @@ ul.nolist {padding:0; list-style:none;}
 .clr-buy-darker {color:shade-color($buy-color, 18%)!important;}
 .clr-sell-darker {color:shade-color($sell-color, 10%)!important;}
 .clr-white {color:#FFF!important;}
+.split-focus-left {display: grid; grid-template-columns: 1fr auto; grid-template-rows: 1fr; align-items:center;}
+.split-focus-right {display: grid; grid-template-columns: auto 1fr; grid-template-rows: 1fr; align-items:center;}
 
 html, body {height:100%; font-size:$font-size-base; color:$font-color; font-family:$font-family;}
 body {overflow-y:scroll;}

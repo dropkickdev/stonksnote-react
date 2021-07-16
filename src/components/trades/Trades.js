@@ -74,8 +74,11 @@ export const TradeList = () => {
                 </div>
 
                 <div className="listing mt-5">
-                    <header>
+                    <header className={'split-focus-left'}>
                         <h2>{table_title}</h2>
+                        <form>
+                            <input name="search" type="text" value="" placeholder={'Search'} />
+                        </form>
                     </header>
                     <TradeTable />
                 </div>

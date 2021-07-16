@@ -179,8 +179,8 @@ table.table {
             //> header {padding:0 $grid-gutter-width;}
             > table.table {border-top:4px solid #CCC;}
         }
-        header {
-            h2 {margin:0 $base-xgutter;}
+        header {padding:0 $base-xgutter;
+            h2 {}
         }
     }
 }
