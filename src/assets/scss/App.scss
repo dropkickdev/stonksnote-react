@@ -52,19 +52,35 @@ table.table {
                 .material-icons {color:$primary;}
             }
             .material-icons {color:#555; font-size:.9rem;}
+            @include media-breakpoint-only(lg) {
+                &:first-child {padding-left:$base-xgutter * .8;}
+                &:last-child {padding-right:$base-xgutter * .8;}
+            }
+            @include media-breakpoint-up(xl) {
+                &:first-child {padding-left:$base-xgutter * 3;}
+                &:last-child {padding-right:$base-xgutter * 3;}
+            }
         }
     }
     tbody {
         tr:hover {background:$hover-bg;
             th, td {color:#000;}
         }
+        //tr {padding:0 $base-xgutter * 3;}
         th, td {color:#5a5a5a;}
         th.focus, td.focus {background:#e6dbb9;}
         .material-icons {position:relative; top:4px;}
         td small {font-size:.8rem;}
+        @include media-breakpoint-only(lg) {
+            th:first-child {padding-left:$base-xgutter * .8;}
+            td:last-child {padding-right:$base-xgutter * .8;}
+        }
+        @include media-breakpoint-up(xl) {
+            th:first-child {padding-left:$base-xgutter * 3;}
+            td:last-child {padding-right:$base-xgutter * 3;}
+        }
     }
-    th:first-child {padding-left:$grid-gutter-width * 4;}
-    td:last-child {padding-right:$grid-gutter-width * 4;}
+
     th.focus-buy, td.focus-buy {background:tint-color(#08BCA8, 70%);}
     th.focus-sell, td.focus-sell {background:tint-color(#FF6962, 70%);}
 }
@@ -175,12 +191,10 @@ table.table {
                 &.active {border-radius:$border-radius $border-radius 0 0;}
             }
         }
+        header {padding:0 $base-xgutter;}
         .listing {
             //> header {padding:0 $grid-gutter-width;}
             > table.table {border-top:4px solid #CCC;}
-        }
-        header {padding:0 $base-xgutter;
-            h2 {}
         }
     }
 }

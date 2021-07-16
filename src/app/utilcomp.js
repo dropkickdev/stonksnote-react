@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useStore } from "react-redux"
 import { Redirect, Route, useLocation } from 'react-router-dom'
 
@@ -54,3 +54,28 @@ export const ScrollToTopOnMount = () => {
 export const ScrollToStart = () => (
     <ScrollToTop />
 )
+
+export const SearchForm = ({callback, className, ...rest}) => {
+    const [value, setValue] = useState('')
+
+    const searchHandler = e => {
+        setValue(e.target.value)
+    };
+
+    const submitHandler = e => {
+        e.preventDefault()
+        callback(value)
+    };
+
+    className = className || ''
+    return (
+        <form onSubmit={submitHandler} className={'search-inline'}
+              style={{marginTop: '-20px'}}>
+            <div className="icon-prepend">
+                <span className="material-icons">search</span>
+                <input onChange={searchHandler} value={value}
+                       type="search" className={`form-control ${className}`} {...rest} />
+            </div>
+        </form>
+    )
+};

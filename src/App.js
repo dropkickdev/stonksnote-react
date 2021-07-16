@@ -14,6 +14,8 @@ import Login, { Logout } from "./components/authentication/Login"
 import Register from "./components/authentication/Register"
 import { AccountPage, SecurityPage, ProfilePage } from "./components/trades/Account"
 import { CollectionPage, MarkPage, MarkAddPage } from "./components/trades/Collection"
+import Error404 from "./app/404"
+
 
 
 function App() {
@@ -64,6 +66,8 @@ function App() {
                     <PublicRoute path={'/auth/register'} component={Register} />
                     <PublicRoute path={'/auth/login'} component={Login} />
                     <PrivateRoute path={'/auth/logout'} component={Logout} />
+
+                    <Route path={'*'} component={Error404} />
                 </Switch>
 
             </div>

@@ -4,7 +4,7 @@ import { NavLink, Link, useRouteMatch, useParams } from "react-router-dom"
 import { Field, Form, Formik } from "formik"
 import * as yup from 'yup'
 
-import { ScrollToStart } from "../../app/utilcomp"
+import { ScrollToStart, SearchForm } from "../../app/utilcomp"
 import UserTemplate from "../../templates/layouts/UserTemplate"
 import { HeaderActions } from "../../templates/partials/partials"
 import { api_mark_create } from "./api_trades"
@@ -13,6 +13,7 @@ import { SimpleInputHTML } from "../../templates/partials/forms"
 
 export const TradeList = () => {
     const [state, setState] = useState({currpage: 1})
+    const [search, setSearch] = useState('')
     const {tab} = useParams()
     const {site} = useSelector(state => state)
 
@@ -45,6 +46,13 @@ export const TradeList = () => {
             table_title = 'All trades'
     }
 
+    const searchHandler = query => {
+        // TODO: Handle the search query for Trades
+        // TODO: Page for search results
+        console.log(query)
+    };
+
+
     return (
         <UserTemplate page={'trades-page'}>
             <ScrollToStart />
@@ -76,9 +84,7 @@ export const TradeList = () => {
                 <div className="listing mt-5">
                     <header className={'split-focus-left'}>
                         <h2>{table_title}</h2>
-                        <form>
-                            <input name="search" type="text" value="" placeholder={'Search'} />
-                        </form>
+                        <SearchForm callback={searchHandler} placeholder={'Symbol'} maxlength={6} />
                     </header>
                     <TradeTable />
                 </div>
@@ -116,7 +122,7 @@ export const TradeTable = () => {
         <table className="table table-striped table-hover">
             <thead>
             <tr>
-                <th scope={'col'}><Link to={''}>Ticket</Link></th>
+                <th scope={'col'}><Link to={''}>Symbol</Link></th>
                 <th scope={'col'}><Link to={''}>Shares</Link></th>
                 <th scope={'col'}><Link to={''}>Buy</Link></th>
                 <th scope={'col'}><Link to={''}>Sell</Link></th>
@@ -145,14 +151,14 @@ export const TradeEntry = props => {
             <tr>
                 <th scope={'row'} className={'symbol'}>{symbol}</th>
                 <td className={'shares'}>{shares}</td>
-                <td className={'buy focus-buy text-bold fitwidth clr-buy-darker'}>{buy}</td>
-                <td className={'sell focus-sell text-bold fitwidth clr-sell-darker'}>{sell}</td>
+                <td className={'buy focus-buy text-bold clr-buy-darker'}>{buy}</td>
+                <td className={'sell focus-sell text-bold clr-sell-darker'}>{sell}</td>
                 <td className={'minsell text-bold'}>&gt; {minsell}</td>
                 <td className={'gainloss'}>{gainloss} <small className={'clr-light'}>{currency}</small></td>
                 <td className={'total'}>{total} <small className={'clr-light'}>{currency}</small></td>
                 <td className={'bought'}>{bought}</td>
-                <td className={'sold'}>{sold}</td>
-                <td className={'action d-flex'}>
+                <td className={'sold fitwidth'}>{sold}</td>
+                <td className={'action d-flex flex-end'}>
                     <button className="btn btn-outline-secondary btn-sm">Edit</button>
                     <button className="btn btn-primary btn-sm ms-2"><span className="material-icons clr-white me-2">done</span>Sold</button>
                 </td>

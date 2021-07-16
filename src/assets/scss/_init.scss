@@ -1,7 +1,6 @@
 
 ul.nolist {padding:0; list-style:none;}
 .fitwidth {width:1px; white-space:nowrap;}  // Use in td
-.justify-content-center {justify-content:center;}
 .nobold {font-weight:normal;}
 .text-bold {font-weight:bold;}
 .clr-light {color:#999!important;}
@@ -12,6 +11,10 @@ ul.nolist {padding:0; list-style:none;}
 .clr-white {color:#FFF!important;}
 .split-focus-left {display: grid; grid-template-columns: 1fr auto; grid-template-rows: 1fr; align-items:center;}
 .split-focus-right {display: grid; grid-template-columns: auto 1fr; grid-template-rows: 1fr; align-items:center;}
+//.justify-content-center {justify-content:center;}
+.flex-start {justify-content:flex-start;}
+.flex-center {justify-content:center;}
+.flex-end {justify-content:flex-end;}
 
 html, body {height:100%; font-size:$font-size-base; color:$font-color; font-family:$font-family;}
 body {overflow-y:scroll;}
@@ -42,6 +45,14 @@ ______
 \_| \___/|_|  |_| |_| |_|___/
 
 */
+.icon-prepend {
+    span {position: absolute; z-index: 2; display: block; width: 2.375rem; height: 2.375rem; line-height: 2.375rem; text-align: center; pointer-events: none; color: #aaa;
+    }
+    input {padding-left: 2.375rem;}
+}
+
+
+.has-search
 textarea {max-height:500px;}
 .field-error {font-size:.9rem;}
 
