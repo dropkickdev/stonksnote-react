@@ -1,9 +1,11 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux"
+import { Link } from 'react-router-dom'
 import { Formik, Form, Field } from "formik"
 import * as yup from 'yup'
 
 import api from "../../app/axios"
+import { IF } from "../../app/utilcomp"
 import GuestTemplate from "../../templates/layouts/GuestTemplate"
 import { set_pageclass } from "../../app/redux/slices"
 import { SimpleInputHTML } from "../../templates/partials/forms"
@@ -11,6 +13,7 @@ import { api_register } from "../../app/api/auth-account"
 
 
 const Register = props => {
+    const [state, setState] = useState({error: false, success: false})
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(set_pageclass('register-app'))
@@ -48,13 +51,18 @@ const Register = props => {
         initialValues: init,
         validationSchema: schema,
         onSubmit: (values, actions) => {
+            setState({...state, error: false, success: false})
             api_register(values)
                 .then(res => {
-                    console.table(res.data)
+                    if(res.status === 201) {
+                        setState({...state, error: false, success: true})
+                    }
+                    else {
+                        setState({...state, error: true, success: false})
+                    }
                 })
-                .catch(({response: {data: {detail}, status}}) => {
-                    console.log(detail)
-                    console.log(status)
+                .catch(err => {
+                    setState({...state, error: true, success: false})
                 })
         }
     }
@@ -64,6 +72,18 @@ const Register = props => {
             <div id="register-content">
                 <div className="row">
                     <div className="col-sm-9 col-md-7 col-lg-5 col-xxl-5 mx-auto">
+                        <IF condition={state.error}>
+                            <div className="alert alert-danger">
+                                <p>Can't seem to register that account.</p>
+                                <ul>
+                                    <li>The account already exists. <br/>You can <Link to={'/auth/change-password'}>change your password</Link>.</li>
+                                    <li>It's our fault. Try again in a few seconds.</li>
+                                </ul>
+                            </div>
+                        </IF>
+                        <IF condition={state.success}>
+                            <div className="alert alert-success">Account created. Please check your email to verify.</div>
+                        </IF>
                         <div className="card">
                             <div className="card-body">
                                 <header>

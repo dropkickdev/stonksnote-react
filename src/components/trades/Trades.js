@@ -73,8 +73,8 @@ export const TradeList = () => {
                     </ul>
                 </div>
 
-                <div className="listing">
-                    <header className={'mt-5'}>
+                <div className="listing mt-5">
+                    <header>
                         <h2>{table_title}</h2>
                     </header>
                     <TradeTable />

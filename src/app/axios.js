@@ -32,12 +32,14 @@ api.interceptors.response.use(res => {
     return res
 }, async err => {
     const {auth} = store.getState()
+    /*
     if(!auth.is_auth) {
         console.log('[You need to be signed in]')
     }
     else {
         console.warn(err.response.status, '[Response interceptor FAIL from]', err.config.url)
     }
+    */
 
     // Prevent infinite loops
     if(err.config.url === s.ACCESS_TOKEN_API) {
