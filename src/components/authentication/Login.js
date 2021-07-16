@@ -7,6 +7,7 @@ import GoogleLogin from "react-google-login"
 
 import conutils from "../../app/utils"
 import s from "../../app/settings/settings"
+import { IF } from "../../app/utilcomp"
 import GuestTemplate from "../../templates/layouts/GuestTemplate"
 import { SimpleInputHTML } from "../../templates/partials/forms"
 import { login, logout, set_pageclass } from "../../app/redux/slices"
@@ -16,9 +17,7 @@ import { api_login, api_logout, api_google_login } from "../../app/api/auth-acco
 
 
 const Login = () => {
-    const [state, setState] = useState({
-        formerror: false
-    })
+    const [state, setState] = useState({error: false})
     const dispatch = useDispatch()
     const history = useHistory()
     useEffect(() => {
@@ -39,6 +38,7 @@ const Login = () => {
         initialValues: init,
         validationSchema: schema,
         onSubmit: async ({email, password}, actions) => {
+            setState({error: false})
             const form = new FormData()
             form.set('username', email)
             form.set('password', password)
@@ -49,9 +49,7 @@ const Login = () => {
                 history.replace('/')
             }
             catch(err) {
-                setState({
-                    formerror: true
-                })
+                setState({error: true})
             }
         }
     }
@@ -71,12 +69,24 @@ const Login = () => {
         }
     };
 
+    // TODO: Page for '/auth/verification-request'
+    // TODO: Page for
     return (
         <GuestTemplate>
             <div id="login-content">
                 <div className="row">
                     <div className="col-sm-9 col-md-7 col-lg-5 col-xxl-5 mx-auto">
-
+                        <IF condition={state.error}>
+                            <div className="alert alert-danger">
+                                <p>Can't seem to get you in.</p>
+                                <ul>
+                                    <li><strong>Check your email spelling</strong> or <br/><Link to={'/auth/register'}>Register the account</Link>.</li>
+                                    <li>You haven't verified the email or <br/><Link to={'/auth/verification-request'}>Request a new code.</Link></li>
+                                    <li>That account has been banned.</li>
+                                    <li>It's our fault. Try again in a few seconds.</li>
+                                </ul>
+                            </div>
+                        </IF>
                         <div className="card">
                             <div className="card-body">
                                 <header>

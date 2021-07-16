@@ -67,6 +67,7 @@ const Register = props => {
         }
     }
 
+    // TODO: Page for '/auth/change-password'
     return (
         <GuestTemplate>
             <div id="register-content">
