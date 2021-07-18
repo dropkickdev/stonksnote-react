@@ -116,7 +116,7 @@ const Register = props => {
         </div>
 
         <div className="submit">
-            <button type={'submit'} className={'btn btn-primary btn-lg w-100'}>Submit</button>
+            <button type={'submit'} className={'btn btn-primary btn-lg w-100 justify-content-center'}>Submit</button>
         </div>
 
     </Form>

@@ -127,8 +127,7 @@ const Login = () => {
                 </div>
 
                 <div className="submit">
-                    <button type={'submit'} className={'btn btn-primary btn-lg w-100' +
-                    ' justify-content-center'}>
+                    <button type={'submit'} className={'btn btn-primary btn-lg w-100 justify-content-center'}>
                         Sign-in
                     </button>
                 </div>

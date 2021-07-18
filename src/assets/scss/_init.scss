@@ -1,6 +1,6 @@
 
+small {font-size:.8rem;}
 ul.nolist {padding:0; list-style:none;}
-.fitwidth {width:1px; white-space:nowrap;}  // Use in td
 .nobold {font-weight:normal;}
 .text-bold {font-weight:bold;}
 .clr-light {color:#999!important;}
@@ -15,6 +15,9 @@ ul.nolist {padding:0; list-style:none;}
 .flex-start {justify-content:flex-start;}
 .flex-center {justify-content:center;}
 .flex-end {justify-content:flex-end;}
+table {
+    td.fitwidth, th.fitwidth {width:1px; white-space:nowrap;}
+}
 
 html, body {height:100%; font-size:$font-size-base; color:$font-color; font-family:$font-family;}
 body {overflow-y:scroll;}

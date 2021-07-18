@@ -119,7 +119,7 @@ export const TradeTable = () => {
             sold: '2021-03-06', id: 7},
     ]
     return (
-        <table className="table table-striped table-hover">
+        <table className="table table-striped table-hover table-boundless">
             <thead>
             <tr>
                 <th scope={'col'}><Link to={''}>Symbol</Link></th>
@@ -158,9 +158,9 @@ export const TradeEntry = props => {
                 <td className={'total'}>{total} <small className={'clr-light'}>{currency}</small></td>
                 <td className={'bought'}>{bought}</td>
                 <td className={'sold fitwidth'}>{sold}</td>
-                <td className={'action d-flex flex-end'}>
-                    <button className="btn btn-outline-secondary btn-sm">Edit</button>
-                    <button className="btn btn-primary btn-sm ms-2"><span className="material-icons clr-white me-2">done</span>Sold</button>
+                <td className={'action d-flex flex-end'}>&nbsp;
+                    <button className="btn btn-outline-secondary btn-sm me-2">Edit</button>
+                    <button className="btn btn-primary btn-sm"><span className="material-icons me-2">done</span>Sold stock</button>
                 </td>
             </tr>
         </>

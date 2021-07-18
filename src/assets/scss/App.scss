@@ -29,15 +29,17 @@ Divider: cybermedium
 */
 $hover-bg: lighten($primary, 40%);
 $base-xgutter:  $grid-gutter-width * 2;
+$table-hover: tint-color($hover-bg, 30%);
+$table-hover-text: #000;
 
 ul.dropdown-menu {
     a {white-space:nowrap;
         &:hover {background:$hover-bg;}
     }
 }
-.btn {display:flex; /*align-items:center;*/ justify-content:center;
+.btn {display:flex; /*align-items:center;*/
     &.btn-sm {
-        .material-icons {position:relative; top:0;}
+        //.material-icons {position:relative; top:0;}
     }
 }
 button.btn-google {background:none!important; justify-content:center; box-shadow:none!important; border:1px solid #AAA!important;
@@ -48,14 +50,14 @@ button.btn-google {background:none!important; justify-content:center; box-shadow
 .modal-dialog {
     &.modal-eyelevel {margin-top:10rem!important;}
 }
-table.table {
+table.table.table-boundless {
     thead {
-        th, a {color:#555;}
+        th, a {color:#555; padding:20px 0 10px; font-size:1.2rem;}
         th {border:none;
             a:hover {color:$primary;
                 .material-icons {color:$primary;}
             }
-            .material-icons {color:#555; font-size:.9rem;}
+            .material-icons {color:#555; font-size:1.2rem;}
             @include media-breakpoint-only(lg) {
                 &:first-child {padding-left:$base-xgutter * .8;}
                 &:last-child {padding-right:$base-xgutter * .8;}
@@ -67,14 +69,15 @@ table.table {
         }
     }
     tbody {
-        tr:hover {background:$hover-bg;
-            th, td {color:#000;}
+        tr:hover {background:$table-hover;
+            th, td, a {color:$table-hover-text;}
         }
-        //tr {padding:0 $base-xgutter * 3;}
-        th, td {color:#5a5a5a;}
-        th.focus, td.focus {background:#e6dbb9;}
-        .material-icons {position:relative; top:4px;}
-        td small {font-size:.8rem;}
+        th, td {color:#5a5a5a; vertical-align:middle;
+            &.focus {background:#e6dbb9;}
+            button {align-items:center;
+                .material-icons {position:relative; top:-2px;}
+            }
+        }
         @include media-breakpoint-only(lg) {
             th:first-child {padding-left:$base-xgutter * .8;}
             td:last-child {padding-right:$base-xgutter * .8;}
@@ -84,7 +87,6 @@ table.table {
             td:last-child {padding-right:$base-xgutter * 3;}
         }
     }
-
     th.focus-buy, td.focus-buy {background:tint-color(#08BCA8, 70%);}
     th.focus-sell, td.focus-sell {background:tint-color(#FF6962, 70%);}
 }
@@ -173,7 +175,6 @@ table.table {
         .actions { grid-area: 1 / 2 / 2 / 3;
             .btn-group {
                 a, button {
-                    &:hover {}
                     &:not(:last-child) {border-right:1px dashed #FFF;}
                     &:not(:first-child) {border-left:1px dashed #FFF;}
                 }
