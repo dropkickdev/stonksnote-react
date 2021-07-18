@@ -40,9 +40,13 @@ ul.dropdown-menu {
         .material-icons {position:relative; top:0;}
     }
 }
-button.btn-google {background:#f8f8f8!important; justify-content:center;
-    > div {background:none!important;}
+button.btn-google {background:none!important; justify-content:center; box-shadow:none!important; border:1px solid #AAA!important;
+    &:hover {border-color:#333!important;}
+    > div {}
     > span {color:#333; font-weight:bold; font-size:1.2rem; font-family:$font-family;}
+}
+.modal-dialog {
+    &.modal-eyelevel {margin-top:10rem!important;}
 }
 table.table {
     thead {

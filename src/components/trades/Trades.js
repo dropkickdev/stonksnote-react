@@ -196,7 +196,7 @@ export const MarkModal = () => {
     return (
         <div className="modal" id="markModalTrigger" tabIndex="-1"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-dialog modal-eyelevel">
                 <div className="modal-content">
                     <div className="modal-body">
 
