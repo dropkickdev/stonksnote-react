@@ -43,7 +43,7 @@ ul.dropdown-menu {
     }
 }
 button.btn-google {background:none!important; justify-content:center; box-shadow:none!important; border:1px solid #AAA!important;
-    &:hover {border-color:#333!important;}
+    &:hover {border-color:#333!important; border-radius:$border-radius;}
     > div {}
     > span {color:#333; font-weight:bold; font-size:1.2rem; font-family:$font-family;}
 }
