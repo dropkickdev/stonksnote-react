@@ -82,3 +82,12 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 
 $secondary:     $gray-600;
+
+
+/* .block-out-buy/sell used in /trades  */
+$block-out-buy-bg: tint-color(#08BCA8, 70%);
+$block-out-buy-dot: shade-color(#08BCA8, 10%);
+$block-out-sell-bg: tint-color(#FF6962, 70%);
+$block-out-sell-dot: shade-color(#FF6962, 10%);
+$block-out-dot-size: 2px;
+$block-out-dot-space: 4px;
